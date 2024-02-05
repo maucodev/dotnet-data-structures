@@ -93,9 +93,10 @@ public class CustomLinkedList
             return;
         }
 
-        if (_first == _last)
+        if (IsSingle())
         {
-            _first = _last = null;
+            EmptyList();
+
             return;
         }
 
@@ -106,8 +107,61 @@ public class CustomLinkedList
         _first = secondNode;
     }
 
+    public void RemoveLast()
+    {
+        if (IsEmpty())
+        {
+            return;
+        }
+
+        if (IsSingle())
+        {
+            EmptyList();
+
+            return;
+        }
+
+        var previous = GetPrevious(_last);
+
+        if (previous == null)
+        {
+            return;
+        }
+
+        _last = previous;
+        
+        _last.Next = null;
+    }
+
+    private void EmptyList()
+    {
+        _first = _last = null;
+    }
+
+    private Node? GetPrevious(Node? node)
+    {
+        var current = _first;
+
+        while (current != null)
+        {
+            if (current.Next == node)
+            {
+                return current;
+            }
+
+            current = current.Next;
+        }
+
+        return null;
+    }
+
     private bool IsEmpty()
     {
         return _first == null;
+    }
+
+    private bool IsSingle()
+    {
+        return _first == _last;
     }
 }

@@ -35,6 +35,17 @@ public static class CustomLinkedListTests
         numbers.RemoveFirst();
         numbers.Print();
 
+        Console.WriteLine("Testing the RemoveLast method...\n");
+        numbers = new CustomLinkedList();
+        numbers.AddFirst(1);
+        numbers.AddLast(2);
+        numbers.Print();
+        numbers.RemoveLast();
+        numbers.Print();
+        numbers.RemoveLast();
+        numbers.RemoveLast();
+        numbers.Print();
+
         Console.WriteLine("Finished program");
     }
 }
