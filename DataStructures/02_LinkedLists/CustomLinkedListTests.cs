@@ -14,5 +14,11 @@ public static class CustomLinkedListTests
         Console.WriteLine("Testing the AddFirst method...\n");
         numbers.AddFirst(1);
         numbers.Print();
+
+        Console.WriteLine("Testing the IndexOf method...\n");
+        Console.WriteLine($"Index of 1: {numbers.IndexOf(1)}");
+        Console.WriteLine($"Index of 2: {numbers.IndexOf(2)}");
+        Console.WriteLine($"Index of 3: {numbers.IndexOf(3)}");
+        Console.WriteLine($"Index of 4: {numbers.IndexOf(4)}");
     }
 }

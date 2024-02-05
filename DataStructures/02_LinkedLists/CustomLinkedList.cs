@@ -39,6 +39,27 @@ public class CustomLinkedList
         _last = node;
     }
 
+    public int IndexOf(int item)
+    {
+        var index = 0;
+
+        var current = _first;
+
+        while (current != null)
+        {
+            if (current.Value == item)
+            {
+                return index;
+            }
+
+            current = current.Next;
+
+            index++;
+        }
+
+        return -1;
+    }
+
     public void Print()
     {
         Console.WriteLine();
