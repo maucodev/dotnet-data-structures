@@ -39,6 +39,11 @@ public class CustomLinkedList
         _last = node;
     }
 
+    public bool Contains(int item)
+    {
+        return IndexOf(item) >= 0;
+    }
+
     public int IndexOf(int item)
     {
         var index = 0;
