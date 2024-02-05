@@ -140,6 +140,22 @@ public class CustomLinkedList
         _size--;
     }
 
+    public int[] ToArray()
+    {
+        var array = new int[_size];
+
+        var index = 0;
+        var current = _first;
+
+        while (current != null)
+        {
+            array[index++] = current.Value;
+            current = current.Next;
+        }
+
+        return array;
+    }
+
     private void EmptyList()
     {
         _first = _last = null;

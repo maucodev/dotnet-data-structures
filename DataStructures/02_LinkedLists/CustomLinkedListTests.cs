@@ -63,6 +63,14 @@ public static class CustomLinkedListTests
         numbers.Print();
         Console.WriteLine($"Size V2: {numbers.GetSizeV2()}\n");
 
+        Console.WriteLine("Testing the ToArray method...\n");
+        numbers = new CustomLinkedList();
+        numbers.AddFirst(1);
+        numbers.AddLast(2);
+        numbers.Print();
+        var array = numbers.ToArray();
+        Console.WriteLine($"Size of the array: {array.Length}\n");
+
         Console.WriteLine("Finished program");
     }
 }
