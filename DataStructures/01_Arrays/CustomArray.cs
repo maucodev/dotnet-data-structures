@@ -2,9 +2,9 @@
 {
     public class CustomArray(int size)
     {
-        private int[] _array = new int[size];
-
         private int _length;
+
+        private int[] _array = new int[size];
 
         public void Insert(int number)
         {
@@ -18,10 +18,7 @@
 
         public void RemoveAt(int index)
         {
-            if (index < 0 || index >= _length)
-            {
-                throw new IndexOutOfRangeException();
-            }
+            ValidateIndex(index);
 
             for (var i = index; i < _length - 1; i++)
             {
@@ -33,10 +30,7 @@
 
         public void InsertAt(int index, int number)
         {
-            if (index < 0 || index >= _length)
-            {
-                throw new IndexOutOfRangeException();
-            }
+            ValidateIndex(index);
 
             if (_length == _array.Length)
             {
@@ -86,21 +80,15 @@
             return result;
         }
 
-        public CustomArray Intersect(CustomArray relay)
+        public CustomArray Intersect(CustomArray other)
         {
-            var result = new CustomArray(relay.GetLength());
+            var result = new CustomArray(other.GetLength());
 
-            for (var i = 0; i < relay.GetLength(); i++)
+            for (var i = 0; i < _length; i++)
             {
-                for (var j = 0; j < _length; j++)
+                if (other.IndexOf(_array[i]) != -1)
                 {
-                    if (relay.ElementAt(i) == _array.ElementAt(j))
-                    {
-                        if (result.IndexOf(relay.ElementAt(i)) == -1)
-                        {
-                            result.Insert(relay.ElementAt(i));
-                        }
-                    }
+                    result.Insert(_array[i]);
                 }
             }
 
@@ -111,22 +99,12 @@
         {
             var result = new CustomArray(_length);
 
-            for (int i = _length - 1; i >= 0; i--)
+            for (var i = _length - 1; i >= 0; i--)
             {
                 result.Insert(_array[i]);
             }
 
             return result;
-        }
-
-        public int ElementAt(int index)
-        {
-            if (index >= _length)
-            {
-                throw new IndexOutOfRangeException();
-            }
-
-            return _array[index];
         }
 
         public int GetLength()
@@ -136,20 +114,28 @@
 
         public void Print()
         {
-            Console.WriteLine(_length == 0 ? "[ ]" : string.Join(" - ", _array.Take(_length)));
+            Console.WriteLine(_length == 0 ? "[]" : string.Join(" - ", _array.Take(_length)));
             Console.WriteLine();
+        }
+
+        private void ValidateIndex(int index)
+        {
+            if (index < 0 || index >= _length)
+            {
+                throw new ArgumentOutOfRangeException(nameof(index));
+            }
         }
 
         private void IncreaseSize()
         {
-            var relay = new int[_length * 2];
+            var result = new int[_length * 2];
 
             for (var i = 0; i < _length; i++)
             {
-                relay[i] = _array[i];
+                result[i] = _array[i];
             }
 
-            _array = relay;
+            _array = result;
         }
     }
 }
