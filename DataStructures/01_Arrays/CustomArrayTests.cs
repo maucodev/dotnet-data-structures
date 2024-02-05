@@ -85,6 +85,8 @@
             Console.WriteLine("Index: 5, Value: 1...\n");
             insertAtTest.InsertAt(5, 1);
             insertAtTest.Print();
+
+            Console.WriteLine("Finished program");
         }
     }
 }

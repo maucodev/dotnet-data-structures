@@ -31,6 +31,8 @@ public class CustomLinkedList
         if (IsEmpty())
         {
             _first = _last = node;
+
+            return;
         }
 
         if (_last != null)
@@ -88,6 +90,12 @@ public class CustomLinkedList
     {
         if (IsEmpty())
         {
+            return;
+        }
+
+        if (_first == _last)
+        {
+            _first = _last = null;
             return;
         }
 

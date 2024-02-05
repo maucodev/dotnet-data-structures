@@ -34,5 +34,7 @@ public static class CustomLinkedListTests
         numbers.RemoveFirst();
         numbers.RemoveFirst();
         numbers.Print();
+
+        Console.WriteLine("Finished program");
     }
 }
