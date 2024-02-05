@@ -7,7 +7,7 @@ namespace DataStructures
         public static void Main()
         {
             TestArray();
-            
+
             Console.ReadLine();
         }
 
