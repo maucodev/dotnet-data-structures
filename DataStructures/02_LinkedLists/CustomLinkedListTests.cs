@@ -20,9 +20,19 @@ public static class CustomLinkedListTests
         Console.WriteLine($"Index of 2: {numbers.IndexOf(2)}");
         Console.WriteLine($"Index of 3: {numbers.IndexOf(3)}");
         Console.WriteLine($"Index of 4: {numbers.IndexOf(4)}");
+        numbers.Print();
 
         Console.WriteLine("Testing the Contains method...\n");
         Console.WriteLine($"Contains 1: {numbers.Contains(1)}");
         Console.WriteLine($"Contains 4: {numbers.Contains(4)}");
+        numbers.Print();
+
+        Console.WriteLine("Testing the RemoveFirst method...\n");
+        numbers = new CustomLinkedList();
+        numbers.AddFirst(1);
+        numbers.Print();
+        numbers.RemoveFirst();
+        numbers.RemoveFirst();
+        numbers.Print();
     }
 }

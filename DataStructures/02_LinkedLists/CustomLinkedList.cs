@@ -1,4 +1,6 @@
-﻿namespace DataStructures._02_LinkedLists;
+﻿using System.Text;
+
+namespace DataStructures._02_LinkedLists;
 
 public class CustomLinkedList
 {
@@ -41,7 +43,7 @@ public class CustomLinkedList
 
     public bool Contains(int item)
     {
-        return IndexOf(item) >= 0;
+        return IndexOf(item) != -1;
     }
 
     public int IndexOf(int item)
@@ -67,11 +69,37 @@ public class CustomLinkedList
 
     public void Print()
     {
-        Console.WriteLine();
+        var current = _first;
+        var contentResult = new StringBuilder("[ ");
+
+        while (current != null)
+        {
+            contentResult.Append($"{current.Value} ");
+
+            current = current.Next;
+        }
+
+        contentResult.Append(']');
+
+        Console.WriteLine($"{contentResult}\n");
+    }
+
+    public void RemoveFirst()
+    {
+        if (IsEmpty())
+        {
+            return;
+        }
+
+        var secondNode = _first!.Next;
+
+        _first.Next = null;
+
+        _first = secondNode;
     }
 
     private bool IsEmpty()
     {
-        return _first == null && _last == null;
+        return _first == null;
     }
 }
