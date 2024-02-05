@@ -8,6 +8,8 @@ public class CustomLinkedList
 
     private Node? _last;
 
+    private int _size;
+
     public void AddFirst(int item)
     {
         var node = new Node(item);
@@ -15,13 +17,13 @@ public class CustomLinkedList
         if (IsEmpty())
         {
             _first = _last = node;
-
+            _size++;
             return;
         }
 
         node.Next = _first;
-
         _first = node;
+        _size++;
     }
 
     public void AddLast(int item)
@@ -31,7 +33,7 @@ public class CustomLinkedList
         if (IsEmpty())
         {
             _first = _last = node;
-
+            _size++;
             return;
         }
 
@@ -41,6 +43,7 @@ public class CustomLinkedList
         }
 
         _last = node;
+        _size++;
     }
 
     public bool Contains(int item)
@@ -105,6 +108,8 @@ public class CustomLinkedList
         _first.Next = null;
 
         _first = secondNode;
+
+        _size--;
     }
 
     public void RemoveLast()
@@ -131,11 +136,14 @@ public class CustomLinkedList
         _last = previous;
         
         _last.Next = null;
+
+        _size--;
     }
 
     private void EmptyList()
     {
         _first = _last = null;
+        _size = 0;
     }
 
     private Node? GetPrevious(Node? node)
@@ -153,6 +161,36 @@ public class CustomLinkedList
         }
 
         return null;
+    }
+
+    public int GetSize()
+    {
+        if (IsEmpty())
+        {
+            return 0;
+        }
+
+        if (IsSingle())
+        {
+            return 1;
+        }
+
+        var size = 0;
+
+        var current = _first;
+
+        while (current != null)
+        {
+            current = current.Next;
+            size++;
+        }
+
+        return size;
+    }
+
+    public int GetSizeV2()
+    {
+        return _size;
     }
 
     private bool IsEmpty()

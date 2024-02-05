@@ -46,6 +46,23 @@ public static class CustomLinkedListTests
         numbers.RemoveLast();
         numbers.Print();
 
+        Console.WriteLine("Testing the GetSize method...\n");
+        numbers = new CustomLinkedList();
+        numbers.AddFirst(1);
+        numbers.AddLast(2);
+        numbers.AddLast(3);
+        numbers.Print();
+        Console.WriteLine($"Size: {numbers.GetSize()}\n");
+
+        Console.WriteLine("Testing the GetSizeV2 method...\n");
+        numbers = new CustomLinkedList();
+        numbers.AddFirst(1);
+        numbers.AddLast(2);
+        numbers.RemoveFirst();
+        numbers.RemoveLast();
+        numbers.Print();
+        Console.WriteLine($"Size V2: {numbers.GetSizeV2()}\n");
+
         Console.WriteLine("Finished program");
     }
 }
