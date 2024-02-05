@@ -80,6 +80,18 @@ public static class CustomLinkedListTests
         numbers.Reverse();
         numbers.Print();
 
+        Console.WriteLine("Testing the GetKthFromTheEnd method...\n");
+        numbers = new CustomLinkedList();
+        numbers.AddFirst(10);
+        numbers.AddLast(20);
+        numbers.AddLast(30);
+        numbers.AddLast(40);
+        numbers.AddLast(50);
+        numbers.Print();
+        Console.WriteLine($"Element at the position 1 from the end: {numbers.GetKthFromTheEnd(1)}");
+        Console.WriteLine($"Element at the position 3 from the end: {numbers.GetKthFromTheEnd(3)}");
+        Console.WriteLine($"Element at the position 5 from the end: {numbers.GetKthFromTheEnd(5)}\n");
+
         Console.WriteLine("Finished program");
     }
 }

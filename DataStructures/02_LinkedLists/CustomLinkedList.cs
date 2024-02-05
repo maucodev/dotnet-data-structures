@@ -51,6 +51,42 @@ public class CustomLinkedList
         return IndexOf(item) != -1;
     }
 
+    public int GetKthFromTheEnd(int k)
+    {
+        if (k > _size)
+        {
+            throw new ArgumentException("The k value can not be grater than the size of the list.");
+        }
+
+        if (k <= 0)
+        {
+            throw new ArgumentException("The k value must be grater than 1.");
+        }
+
+        var a = _first;
+        var b = _first;
+
+        for (var i = 0; i < k - 1; i++)
+        {
+            b = b?.Next;
+
+            if (b == null)
+            {
+                // This conditional can be used when we have not a variable for tracking the size of the list.
+                throw new ArgumentException("The k value can not be grater than the size of the list.");
+            }
+        }
+
+        while (b != _last)
+        {
+            a = a?.Next;
+            b = b?.Next;
+        }
+
+        // This conditional can be used when we have not a variable for tracking the size of the list.
+        return a?.Value ?? throw new ArgumentException("The k value can not be grater than the size of the list.");
+    }
+
     public int IndexOf(int item)
     {
         var index = 0;
