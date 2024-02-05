@@ -6,11 +6,27 @@ public class CustomLinkedList
 
     private Node? _last;
 
+    public void AddFirst(int item)
+    {
+        var node = new Node(item);
+
+        if (IsEmpty())
+        {
+            _first = _last = node;
+
+            return;
+        }
+
+        node.Next = _first;
+
+        _first = node;
+    }
+
     public void AddLast(int item)
     {
         var node = new Node(item);
 
-        if (_first == null)
+        if (IsEmpty())
         {
             _first = _last = node;
         }
@@ -26,5 +42,10 @@ public class CustomLinkedList
     public void Print()
     {
         Console.WriteLine();
+    }
+
+    private bool IsEmpty()
+    {
+        return _first == null && _last == null;
     }
 }

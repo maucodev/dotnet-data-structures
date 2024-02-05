@@ -7,9 +7,12 @@ public static class CustomLinkedListTests
         var numbers = new CustomLinkedList();
 
         Console.WriteLine("Testing the AddLast method...\n");
-        numbers.AddLast(1);
         numbers.AddLast(2);
         numbers.AddLast(3);
+        numbers.Print();
+
+        Console.WriteLine("Testing the AddFirst method...\n");
+        numbers.AddFirst(1);
         numbers.Print();
     }
 }
