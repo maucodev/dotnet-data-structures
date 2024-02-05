@@ -1,4 +1,5 @@
 ﻿using DataStructures._01_Arrays;
+using DataStructures._02_LinkedLists;
 
 namespace DataStructures
 {
@@ -6,9 +7,29 @@ namespace DataStructures
     {
         public static void Main()
         {
-            CustomArrayTests.Execute();
+            switch (GetOption().KeyChar)
+            {
+                case '1':
+                    CustomArrayTests.Execute();
+                    break;
+
+                case '2':
+                    CustomLinkedListTests.Execute();
+                    break;
+            }
 
             Console.ReadLine();
+        }
+
+        private static ConsoleKeyInfo GetOption()
+        {
+            Console.Write("What data structure do you want to run? ");
+
+            var input = Console.ReadKey();
+
+            Console.Clear();
+
+            return input;
         }
     }
 }
