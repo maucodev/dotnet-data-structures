@@ -140,6 +140,38 @@ public class CustomLinkedList
         _size--;
     }
 
+    public void Reverse()
+    {
+        if (IsEmpty() || IsSingle())
+        {
+            return;
+        }
+
+        var i = _first;
+
+        var j = _first!.Next;
+
+        while (j != null)
+        {
+            // Store the third element
+            var k = j.Next;
+
+            // The second element points to the first element
+            j.Next = i;
+
+            // Forward one position
+            i = j;
+            j = k;
+        }
+
+        // The last item points to the first item
+        _last = _first;
+        _last.Next = null;
+
+        // The first element is now the last element
+        _first = i;
+    }
+
     public int[] ToArray()
     {
         var array = new int[_size];
