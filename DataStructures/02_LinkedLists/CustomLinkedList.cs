@@ -125,6 +125,30 @@ public class CustomLinkedList
         Console.WriteLine($"{contentResult}\n");
     }
 
+    public void PrintMiddle()
+    {
+        if (IsEmpty())
+        {
+            Console.WriteLine("[ ]\n");
+        }
+
+        if (IsSingle())
+        {
+            Console.WriteLine($"[ {_first!.Value} ]\n");
+        }
+
+        var a = _first;
+        var b = _first;
+
+        while (b != _last && b!.Next != _last)
+        {
+            a = a!.Next;
+            b = b.Next!.Next;
+        }
+
+        Console.WriteLine(b == _last ? $"[ {a!.Value} ]\n" : $"[ {a!.Value} {a.Next!.Value} ]\n");
+    }
+
     public void RemoveFirst()
     {
         if (IsEmpty())

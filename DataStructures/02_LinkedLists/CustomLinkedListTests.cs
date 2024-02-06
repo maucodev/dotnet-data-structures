@@ -92,6 +92,23 @@ public static class CustomLinkedListTests
         Console.WriteLine($"Element at the position 3 from the end: {numbers.GetKthFromTheEnd(3)}");
         Console.WriteLine($"Element at the position 5 from the end: {numbers.GetKthFromTheEnd(5)}\n");
 
+        Console.WriteLine("Testing the PrintMiddle method...\n");
+        numbers = new CustomLinkedList();
+        numbers.AddFirst(1);
+        numbers.AddLast(2);
+        numbers.AddLast(3);
+        numbers.AddLast(4);
+        numbers.AddLast(5);
+        numbers.AddLast(6);
+        numbers.AddLast(7);
+        numbers.Print();
+        numbers.PrintMiddle();
+        numbers.RemoveLast();
+        numbers.RemoveLast();
+        numbers.RemoveLast();
+        numbers.Print();
+        numbers.PrintMiddle();
+
         Console.WriteLine("Finished program");
     }
 }
