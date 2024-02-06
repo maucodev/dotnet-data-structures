@@ -87,6 +87,36 @@ public class CustomLinkedList
         return a?.Value ?? throw new ArgumentException("The k value can not be grater than the size of the list.");
     }
 
+    public bool HasLoop(bool createLoop = false)
+    {
+        if (IsEmpty() || IsSingle())
+        {
+            return false;
+        }
+
+        // This flag creates a loop just for testing the code.
+        if (createLoop)
+        {
+            _last!.Next = _first?.Next;
+        }
+
+        var slow = _first;
+        var fast = _first;
+
+        while (fast is { Next: not null })
+        {
+            slow = slow?.Next;
+            fast = fast.Next?.Next;
+
+            if (slow == fast)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     public int IndexOf(int item)
     {
         var index = 0;

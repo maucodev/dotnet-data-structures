@@ -109,6 +109,17 @@ public static class CustomLinkedListTests
         numbers.Print();
         numbers.PrintMiddle();
 
+        Console.WriteLine("Testing the HasLoop method...\n");
+        numbers = new CustomLinkedList();
+        numbers.AddFirst(10);
+        numbers.AddLast(20);
+        numbers.AddLast(30);
+        numbers.AddLast(40);
+        numbers.AddLast(50);
+        numbers.Print();
+        Console.WriteLine($"Has loop: {numbers.HasLoop()}\n");
+        Console.WriteLine($"Has loop: {numbers.HasLoop(createLoop: true)}\n");
+
         Console.WriteLine("Finished program");
     }
 }
