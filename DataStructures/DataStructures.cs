@@ -1,5 +1,6 @@
 ﻿using DataStructures._01_Arrays;
 using DataStructures._02_LinkedLists;
+using DataStructures._03_Stacks;
 
 namespace DataStructures
 {
@@ -15,6 +16,10 @@ namespace DataStructures
 
                 case '2':
                     CustomLinkedListTests.Execute();
+                    break;
+
+                case '3':
+                    CustomStackTests.Execute();
                     break;
             }
 
