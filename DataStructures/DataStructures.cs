@@ -21,6 +21,10 @@ namespace DataStructures
                 case '3':
                     CustomStackTests.Execute();
                     break;
+
+                default:
+                    Console.WriteLine("Option not valid!");
+                    break;
             }
 
             Console.ReadLine();

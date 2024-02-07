@@ -11,8 +11,10 @@ public static class CustomStackTests
         var expression = "(1+2)";
         Console.WriteLine($"Expression: {expression}");
         Console.WriteLine($"Is balanced result: {Expression.IsBalanced(expression)}");
-        expression = "(1+2";
+        expression = "(1+2]";
         Console.WriteLine($"Expression: {expression}");
         Console.WriteLine($"Is balanced result: {Expression.IsBalanced(expression)}\n");
+
+        Console.WriteLine("Finished program");
     }
 }
