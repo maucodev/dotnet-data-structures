@@ -41,6 +41,19 @@ public static class CustomQueueTests
         customQueue.Dequeue();
         Console.WriteLine($"Dequeue: {customQueue}");
 
+        Console.WriteLine("Testing the CustomQueueWithTwoStacks...\n");
+        var customQueueWithTwoStacks = new CustomQueueWithTwoStacks();
+        customQueueWithTwoStacks.Enqueue(10);
+        customQueueWithTwoStacks.Enqueue(20);
+        customQueueWithTwoStacks.Enqueue(30);
+        customQueueWithTwoStacks.Enqueue(40);
+        customQueueWithTwoStacks.Enqueue(50);
+        customQueueWithTwoStacks.Dequeue();
+        customQueueWithTwoStacks.Dequeue();
+        customQueueWithTwoStacks.Dequeue();
+        customQueueWithTwoStacks.Dequeue();
+        Console.WriteLine($"Peek: {customQueueWithTwoStacks.Peek()}\n");
+
         Console.WriteLine("Testing ended!\n");
     }
 }
