@@ -1,6 +1,7 @@
 ﻿using DataStructures._01_Arrays;
 using DataStructures._02_LinkedLists;
 using DataStructures._03_Stacks;
+using DataStructures._04_Queues;
 
 namespace DataStructures
 {
@@ -20,6 +21,10 @@ namespace DataStructures
 
                 case '3':
                     CustomStackTests.Execute();
+                    break;
+
+                case '4':
+                    CustomQueueTests.Execute();
                     break;
 
                 default:
