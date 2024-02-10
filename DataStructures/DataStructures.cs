@@ -5,8 +5,14 @@ using DataStructures._04_Queues;
 
 namespace DataStructures
 {
+    /// <summary>
+    /// Entry point for the DataStructures program.
+    /// </summary>
     public static class DataStructures
     {
+        /// <summary>
+        /// Main method to execute different data structure tests based on user input.
+        /// </summary>
         public static void Main()
         {
             switch (GetOption().KeyChar)
@@ -35,6 +41,10 @@ namespace DataStructures
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// Prompts the user to select a data structure option.
+        /// </summary>
+        /// <returns>The selected option as a ConsoleKeyInfo object.</returns>
         private static ConsoleKeyInfo GetOption()
         {
             Console.Write("What data structure do you want to run? ");

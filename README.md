@@ -3,6 +3,9 @@
 ## Overview
 This Visual Studio solution is a comprehensive guide to the core data structures in computer science, implemented in C#. It serves as an educational tool for those looking to learn more about data structures and their implementation.
 
+## Based on a Course
+This project is based on the [Data Structures and Algorithms course by Mosh Hamedani.](https://codewithmosh.com/p/data-structures-algorithms) The course provides a deep understanding of data structures and algorithms using C#. This project is an implementation of the concepts taught in the course.
+
 ## Structure
 The solution is divided into some main projects, each representing a fundamental data structure:
 
