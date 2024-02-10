@@ -7,7 +7,7 @@ namespace DataStructures._04_Queues
         public static void Reverse(Queue<string> queue)
         {
             var stack = new Stack<string>();
-
+            
             while (queue.Count > 0)
             {
                 stack.Push(queue.Dequeue());
