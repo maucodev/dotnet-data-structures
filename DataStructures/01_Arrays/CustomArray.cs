@@ -1,11 +1,17 @@
 ﻿namespace DataStructures._01_Arrays
 {
+    /// <summary>
+    /// Represents a custom array data structure.
+    /// </summary>
     public class CustomArray(int size)
     {
         private int _length;
-
         private int[] _array = new int[size];
 
+        /// <summary>
+        /// Inserts an element into the array.
+        /// </summary>
+        /// <param name="number">The element to be inserted.</param>
         public void Insert(int number)
         {
             if (_array.Length <= _length)
@@ -16,6 +22,11 @@
             _array[_length++] = number;
         }
 
+        /// <summary>
+        /// Removes the element at the specified index from the array.
+        /// </summary>
+        /// <param name="index">The index of the element to be removed.</param>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when the index is out of range.</exception>
         public void RemoveAt(int index)
         {
             ValidateIndex(index);
@@ -28,6 +39,12 @@
             _length--;
         }
 
+        /// <summary>
+        /// Inserts an element at the specified index in the array.
+        /// </summary>
+        /// <param name="index">The index at which to insert the element.</param>
+        /// <param name="number">The element to be inserted.</param>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown when the index is out of range.</exception>
         public void InsertAt(int index, int number)
         {
             ValidateIndex(index);
@@ -47,6 +64,11 @@
             _length++;
         }
 
+        /// <summary>
+        /// Returns the index of the first occurrence of the specified value in the array.
+        /// </summary>
+        /// <param name="value">The value to search for.</param>
+        /// <returns>The index of the value if found; otherwise, -1.</returns>
         public int IndexOf(int value)
         {
             for (var i = 0; i < _length; i++)
@@ -60,6 +82,10 @@
             return -1;
         }
 
+        /// <summary>
+        /// Returns the maximum value in the array.
+        /// </summary>
+        /// <returns>The maximum value in the array.</returns>
         public int Max()
         {
             if (_length == 0)
@@ -80,6 +106,11 @@
             return result;
         }
 
+        /// <summary>
+        /// Returns a new array containing the intersection of the current array with another array.
+        /// </summary>
+        /// <param name="other">The other array to intersect with.</param>
+        /// <returns>A new array containing the intersection of the two arrays.</returns>
         public CustomArray Intersect(CustomArray other)
         {
             var result = new CustomArray(other.GetLength());
@@ -95,6 +126,10 @@
             return result;
         }
 
+        /// <summary>
+        /// Returns a new array containing the elements of the current array in reverse order.
+        /// </summary>
+        /// <returns>A new array containing the elements in reverse order.</returns>
         public CustomArray Reverse()
         {
             var result = new CustomArray(_length);
@@ -107,11 +142,18 @@
             return result;
         }
 
+        /// <summary>
+        /// Gets the length of the array.
+        /// </summary>
+        /// <returns>The length of the array.</returns>
         public int GetLength()
         {
             return _length;
         }
 
+        /// <summary>
+        /// Prints the elements of the array.
+        /// </summary>
         public void Print()
         {
             Console.WriteLine(_length == 0 ? "[]" : string.Join(" - ", _array.Take(_length)));

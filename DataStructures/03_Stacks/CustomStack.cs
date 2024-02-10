@@ -1,64 +1,94 @@
 ﻿using System.Text;
 
-namespace DataStructures._03_Stacks;
-
-public class CustomStack
+namespace DataStructures._03_Stacks
 {
-    private int _length;
-
-    private readonly int[] _stack = new int[5];
-
-    public bool IsEmpty()
+    /// <summary>
+    /// Represents a custom stack data structure.
+    /// </summary>
+    public class CustomStack
     {
-        return _length == 0;
-    }
+        private int _length;
+        private readonly int[] _stack = new int[5];
 
-    public bool IsFull()
-    {
-        return _length == _stack.Length;
-    }
-
-    public int Peek()
-    {
-        if (IsEmpty())
+        /// <summary>
+        /// Checks if the stack is empty.
+        /// </summary>
+        /// <returns>True if the stack is empty, otherwise false.</returns>
+        public bool IsEmpty()
         {
-            throw new StackOverflowException();
+            return _length == 0;
         }
 
-        return _stack[_length - 1];
-    }
-
-    public int Pop()
-    {
-        if (IsEmpty())
+        /// <summary>
+        /// Checks if the stack is full.
+        /// </summary>
+        /// <returns>True if the stack is full, otherwise false.</returns>
+        public bool IsFull()
         {
-            throw new StackOverflowException();
+            return _length == _stack.Length;
         }
 
-        return _stack[--_length];
-    }
-
-    public void Push(int item)
-    {
-        if (IsFull())
+        /// <summary>
+        /// Returns the top element of the stack without removing it.
+        /// </summary>
+        /// <returns>The top element of the stack.</returns>
+        /// <exception cref="StackOverflowException">Thrown when the stack is empty.</exception>
+        public int Peek()
         {
-            throw new StackOverflowException();
+            if (IsEmpty())
+            {
+                throw new StackOverflowException();
+            }
+
+            return _stack[_length - 1];
         }
 
-        _stack[_length++] = item;
-    }
-
-    public override string ToString()
-    {
-        var result = new StringBuilder("[");
-
-        for (var i = 0; i < _length; i++)
+        /// <summary>
+        /// Removes and returns the top element of the stack.
+        /// </summary>
+        /// <returns>The top element of the stack.</returns>
+        /// <exception cref="StackOverflowException">Thrown when the stack is empty.</exception>
+        public int Pop()
         {
-            result.Append($" {_stack[i]} ");
+            if (IsEmpty())
+            {
+                throw new StackOverflowException();
+            }
+
+            return _stack[--_length];
         }
 
-        result.Append(']');
+        /// <summary>
+        /// Adds an item to the top of the stack.
+        /// </summary>
+        /// <param name="item">The item to be added to the stack.</param>
+        /// <exception cref="StackOverflowException">Thrown when the stack is full.</exception>
+        public void Push(int item)
+        {
+            if (IsFull())
+            {
+                throw new StackOverflowException();
+            }
 
-        return result.ToString();
+            _stack[_length++] = item;
+        }
+
+        /// <summary>
+        /// Returns a string representation of the stack.
+        /// </summary>
+        /// <returns>A string representation of the stack.</returns>
+        public override string ToString()
+        {
+            var result = new StringBuilder("[");
+
+            for (var i = 0; i < _length; i++)
+            {
+                result.Append($" {_stack[i]} ");
+            }
+
+            result.Append(']');
+
+            return result.ToString();
+        }
     }
 }

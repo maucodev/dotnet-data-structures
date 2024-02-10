@@ -1,125 +1,232 @@
-﻿namespace DataStructures._02_LinkedLists;
+﻿using DataStructures.Shared;
 
-public static class CustomLinkedListTests
+namespace DataStructures._02_LinkedLists
 {
-    public static void Execute()
+    /// <summary>
+    /// Contains methods to test the functionality of the CustomLinkedList class.
+    /// </summary>
+    public static class CustomLinkedListTests
     {
-        var numbers = new CustomLinkedList();
+        /// <summary>
+        /// Executes the tests for the CustomLinkedList class.
+        /// </summary>
+        public static void Execute()
+        {
+            var numbers = new CustomLinkedList();
 
-        Console.WriteLine("Testing the AddLast method...\n");
-        numbers.AddLast(2);
-        numbers.AddLast(3);
-        numbers.Print();
+            TestAddLast(numbers);
+            TestAddFirst(numbers);
+            TestIndexOf(numbers);
+            TestContains(numbers);
+            TestRemoveFirst();
+            TestRemoveLast();
+            TestGetSize();
+            TestGetSizeV2();
+            TestToArray();
+            TestReverse();
+            TestGetKthFromTheEnd();
+            TestPrintMiddle();
+            TestHasLoop();
+        }
 
-        Console.WriteLine("Testing the AddFirst method...\n");
-        numbers.AddFirst(1);
-        numbers.Print();
+        private static void TestAddLast(CustomLinkedList numbers)
+        {
+            ConsoleUtilities.PrintTitle("Testing the AddLast method");
 
-        Console.WriteLine("Testing the IndexOf method...\n");
-        Console.WriteLine($"Index of 1: {numbers.IndexOf(1)}");
-        Console.WriteLine($"Index of 2: {numbers.IndexOf(2)}");
-        Console.WriteLine($"Index of 3: {numbers.IndexOf(3)}");
-        Console.WriteLine($"Index of 4: {numbers.IndexOf(4)}");
-        numbers.Print();
+            numbers.AddLast(2);
+            numbers.AddLast(3);
+            numbers.Print();
+        }
 
-        Console.WriteLine("Testing the Contains method...\n");
-        Console.WriteLine($"Contains 1: {numbers.Contains(1)}");
-        Console.WriteLine($"Contains 4: {numbers.Contains(4)}");
-        numbers.Print();
+        private static void TestAddFirst(CustomLinkedList numbers)
+        {
+            ConsoleUtilities.PrintTitle("Testing the AddFirst method");
 
-        Console.WriteLine("Testing the RemoveFirst method...\n");
-        numbers = new CustomLinkedList();
-        numbers.AddFirst(1);
-        numbers.Print();
-        numbers.RemoveFirst();
-        numbers.RemoveFirst();
-        numbers.Print();
+            numbers.AddFirst(1);
+            numbers.Print();
+        }
 
-        Console.WriteLine("Testing the RemoveLast method...\n");
-        numbers = new CustomLinkedList();
-        numbers.AddFirst(1);
-        numbers.AddLast(2);
-        numbers.Print();
-        numbers.RemoveLast();
-        numbers.Print();
-        numbers.RemoveLast();
-        numbers.RemoveLast();
-        numbers.Print();
+        private static void TestIndexOf(CustomLinkedList numbers)
+        {
+            ConsoleUtilities.PrintTitle("Testing the IndexOf method");
 
-        Console.WriteLine("Testing the GetSize method...\n");
-        numbers = new CustomLinkedList();
-        numbers.AddFirst(1);
-        numbers.AddLast(2);
-        numbers.AddLast(3);
-        numbers.Print();
-        Console.WriteLine($"Size: {numbers.GetSize()}\n");
+            Console.WriteLine($"Index of 1: {numbers.IndexOf(1)}");
+            Console.WriteLine($"Index of 2: {numbers.IndexOf(2)}");
+            Console.WriteLine($"Index of 3: {numbers.IndexOf(3)}");
+            Console.WriteLine($"Index of 4: {numbers.IndexOf(4)}");
 
-        Console.WriteLine("Testing the GetSizeV2 method...\n");
-        numbers = new CustomLinkedList();
-        numbers.AddFirst(1);
-        numbers.AddLast(2);
-        numbers.RemoveFirst();
-        numbers.RemoveLast();
-        numbers.Print();
-        Console.WriteLine($"Size V2: {numbers.GetSizeV2()}\n");
+            numbers.Print();
+        }
 
-        Console.WriteLine("Testing the ToArray method...\n");
-        numbers = new CustomLinkedList();
-        numbers.AddFirst(1);
-        numbers.AddLast(2);
-        numbers.Print();
-        var array = numbers.ToArray();
-        Console.WriteLine($"Size of the array: {array.Length}\n");
+        private static void TestContains(CustomLinkedList numbers)
+        {
+            ConsoleUtilities.PrintTitle("Testing the Contains method");
 
-        Console.WriteLine("Testing the Reverse method...\n");
-        numbers = new CustomLinkedList();
-        numbers.AddFirst(1);
-        numbers.AddLast(2);
-        numbers.AddLast(3);
-        numbers.Print();
-        numbers.Reverse();
-        numbers.Print();
+            Console.WriteLine($"Contains 1: {numbers.Contains(1)}");
+            Console.WriteLine($"Contains 4: {numbers.Contains(4)}");
 
-        Console.WriteLine("Testing the GetKthFromTheEnd method...\n");
-        numbers = new CustomLinkedList();
-        numbers.AddFirst(10);
-        numbers.AddLast(20);
-        numbers.AddLast(30);
-        numbers.AddLast(40);
-        numbers.AddLast(50);
-        numbers.Print();
-        Console.WriteLine($"Element at the position 1 from the end: {numbers.GetKthFromTheEnd(1)}");
-        Console.WriteLine($"Element at the position 3 from the end: {numbers.GetKthFromTheEnd(3)}");
-        Console.WriteLine($"Element at the position 5 from the end: {numbers.GetKthFromTheEnd(5)}\n");
+            numbers.Print();
+        }
 
-        Console.WriteLine("Testing the PrintMiddle method...\n");
-        numbers = new CustomLinkedList();
-        numbers.AddFirst(1);
-        numbers.AddLast(2);
-        numbers.AddLast(3);
-        numbers.AddLast(4);
-        numbers.AddLast(5);
-        numbers.AddLast(6);
-        numbers.AddLast(7);
-        numbers.Print();
-        numbers.PrintMiddle();
-        numbers.RemoveLast();
-        numbers.RemoveLast();
-        numbers.RemoveLast();
-        numbers.Print();
-        numbers.PrintMiddle();
+        private static void TestRemoveFirst()
+        {
+            ConsoleUtilities.PrintTitle("Testing the RemoveFirst method");
 
-        Console.WriteLine("Testing the HasLoop method...\n");
-        numbers = new CustomLinkedList();
-        numbers.AddFirst(10);
-        numbers.AddLast(20);
-        numbers.AddLast(30);
-        numbers.AddLast(40);
-        numbers.AddLast(50);
-        numbers.Print();
-        Console.WriteLine($"Has loop: {numbers.HasLoop()}\n");
-        Console.WriteLine($"Has loop: {numbers.HasLoop(createLoop: true)}\n");
+            var numbers = new CustomLinkedList();
 
-        Console.WriteLine("Finished program");
+            numbers.AddFirst(1);
+
+            numbers.Print();
+            
+            numbers.RemoveFirst();
+            numbers.RemoveFirst();
+            
+            numbers.Print();
+        }
+
+        private static void TestRemoveLast()
+        {
+            ConsoleUtilities.PrintTitle("Testing the RemoveLast method");
+
+            var numbers = new CustomLinkedList();
+            
+            numbers.AddFirst(1);
+            
+            numbers.AddLast(2);
+            
+            numbers.Print();
+            
+            numbers.RemoveLast();
+            
+            numbers.Print();
+            
+            numbers.RemoveLast();
+            numbers.RemoveLast();
+            
+            numbers.Print();
+        }
+
+        private static void TestGetSize()
+        {
+            ConsoleUtilities.PrintTitle("Testing the GetSize method");
+
+            var numbers = new CustomLinkedList();
+            
+            numbers.AddFirst(1);
+            numbers.AddLast(2);
+            numbers.AddLast(3);
+            
+            numbers.Print();
+            
+            Console.WriteLine($"Size: {numbers.GetSize()}\n");
+        }
+
+        private static void TestGetSizeV2()
+        {
+            ConsoleUtilities.PrintTitle("Testing the GetSizeV2 method");
+
+            var numbers = new CustomLinkedList();
+            
+            numbers.AddFirst(1);
+            numbers.AddLast(2);
+            numbers.RemoveFirst();
+            numbers.RemoveLast();
+            
+            numbers.Print();
+            
+            Console.WriteLine($"Size V2: {numbers.GetSizeV2()}\n");
+        }
+
+        private static void TestToArray()
+        {
+            ConsoleUtilities.PrintTitle("Testing the ToArray method");
+            
+            var numbers = new CustomLinkedList();
+            
+            numbers.AddFirst(1);
+            numbers.AddLast(2);
+            numbers.Print();
+            
+            var array = numbers.ToArray();
+            
+            Console.WriteLine($"Size of the array: {array.Length}\n");
+        }
+
+        private static void TestReverse()
+        {
+            ConsoleUtilities.PrintTitle("Testing the Reverse method");
+
+            var numbers = new CustomLinkedList();
+            
+            numbers.AddFirst(1);
+            numbers.AddLast(2);
+            numbers.AddLast(3);
+            numbers.Print();
+            
+            numbers.Reverse();
+            
+            numbers.Print();
+        }
+
+        private static void TestGetKthFromTheEnd()
+        {
+            ConsoleUtilities.PrintTitle("Testing the GetKthFromTheEnd method");
+            
+            var numbers = new CustomLinkedList();
+            
+            numbers.AddFirst(10);
+            numbers.AddLast(20);
+            numbers.AddLast(30);
+            numbers.AddLast(40);
+            numbers.AddLast(50);
+            
+            numbers.Print();
+            
+            Console.WriteLine($"Element at the position 1 from the end: {numbers.GetKthFromTheEnd(1)}");
+            Console.WriteLine($"Element at the position 3 from the end: {numbers.GetKthFromTheEnd(3)}");
+            Console.WriteLine($"Element at the position 5 from the end: {numbers.GetKthFromTheEnd(5)}\n");
+        }
+
+        private static void TestPrintMiddle()
+        {
+            ConsoleUtilities.PrintTitle("Testing the PrintMiddle method");
+
+            var numbers = new CustomLinkedList();
+            
+            numbers.AddFirst(1);
+            numbers.AddLast(2);
+            numbers.AddLast(3);
+            numbers.AddLast(4);
+            numbers.AddLast(5);
+            numbers.AddLast(6);
+            numbers.AddLast(7);
+            numbers.Print();
+            numbers.PrintMiddle();
+            numbers.RemoveLast();
+            numbers.RemoveLast();
+            numbers.RemoveLast();
+            numbers.Print();
+            
+            numbers.PrintMiddle();
+        }
+
+        private static void TestHasLoop()
+        {
+            ConsoleUtilities.PrintTitle("Testing the HasLoop method");
+            
+            var numbers = new CustomLinkedList();
+            
+            numbers.AddFirst(10);
+            numbers.AddLast(20);
+            numbers.AddLast(30);
+            numbers.AddLast(40);
+            numbers.AddLast(50);
+            
+            numbers.Print();
+            
+            Console.WriteLine($"Has loop: {numbers.HasLoop()}\n");
+            
+            Console.WriteLine($"Has loop: {numbers.HasLoop(createLoop: true)}\n");
+        }
     }
 }

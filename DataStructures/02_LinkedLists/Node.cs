@@ -1,8 +1,18 @@
-﻿namespace DataStructures._02_LinkedLists;
-
-public class Node(int value)
+﻿namespace DataStructures._02_LinkedLists
 {
-    public int Value { get; set; } = value;
+    /// <summary>
+    /// Represents a node in a linked list.
+    /// </summary>
+    public class Node(int value)
+    {
+        /// <summary>
+        /// Gets or sets the value stored in the node.
+        /// </summary>
+        public int Value { get; set; } = value;
 
-    public Node? Next { get; set; }
+        /// <summary>
+        /// Gets or sets the reference to the next node in the linked list.
+        /// </summary>
+        public Node? Next { get; set; }
+    }
 }

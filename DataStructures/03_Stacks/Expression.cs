@@ -1,26 +1,38 @@
-﻿namespace DataStructures._03_Stacks;
-
-public static class Expression
+﻿namespace DataStructures._03_Stacks
 {
-    private static readonly List<char> LeftBrackets = ['(', '<', '[', '{'];
-    private static readonly List<char> RightBrackets = [')', '>', ']', '}'];
-
-    public static bool IsBalanced(string expression)
+    /// <summary>
+    /// Provides methods to evaluate the balance of expressions containing brackets using a stack data structure.
+    /// </summary>
+    public static class Expression
     {
-        ArgumentNullException.ThrowIfNull(nameof(expression));
+        private static readonly List<char> LeftBrackets = ['(', '<', '[', '{'];
+        private static readonly List<char> RightBrackets = [')', '>', ']', '}'];
 
-        var stack = new Stack<char>();
-
-        foreach (var ch in expression)
+        /// <summary>
+        /// Checks if the given expression has balanced brackets.
+        /// </summary>
+        /// <param name="expression">The expression to be checked.</param>
+        /// <returns>True if the brackets in the expression are balanced, otherwise false.</returns>
+        /// <exception cref="ArgumentNullException">Thrown when the expression is null.</exception>
+        public static bool IsBalanced(string expression)
         {
-            if (IsLeftBracket(ch))
-            {
-                stack.Push(ch);
-            }
+            ArgumentNullException.ThrowIfNull(nameof(expression));
 
-            if (IsRightBracket(ch))
+            var stack = new Stack<char>();
+
+            foreach (var ch in expression)
             {
-                if (!stack.TryPop(out char top))
+                if (IsLeftBracket(ch))
+                {
+                    stack.Push(ch);
+                }
+
+                if (!IsRightBracket(ch))
+                {
+                    continue;
+                }
+
+                if (!stack.TryPop(out var top))
                 {
                     return false;
                 }
@@ -30,23 +42,23 @@ public static class Expression
                     return false;
                 }
             }
+
+            return stack.Count == 0;
         }
 
-        return stack.Count == 0;
-    }
+        private static bool IsLeftBracket(char ch)
+        {
+            return LeftBrackets.Contains(ch);
+        }
 
-    private static bool IsLeftBracket(char ch)
-    {
-        return LeftBrackets.Contains(ch);
-    }
+        private static bool IsRightBracket(char ch)
+        {
+            return RightBrackets.Contains(ch);
+        }
 
-    private static bool IsRightBracket(char ch)
-    {
-        return RightBrackets.Contains(ch);
-    }
-
-    private static bool BracketsMatch(char left, char right)
-    {
-        return LeftBrackets.IndexOf(left) == RightBrackets.IndexOf(right);
+        private static bool BracketsMatch(char left, char right)
+        {
+            return LeftBrackets.IndexOf(left) == RightBrackets.IndexOf(right);
+        }
     }
 }
