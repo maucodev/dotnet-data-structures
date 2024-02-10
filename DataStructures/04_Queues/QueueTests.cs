@@ -17,6 +17,7 @@ public static class QueueTests
         TestCustomQueueWithTwoStacks();
         TestCustomPriorityQueue();
         TestQueueReverser();
+        TestQueueWithLinkedList();
     }
 
     private static void TestStringReverser()
@@ -144,5 +145,30 @@ public static class QueueTests
         QueueReverser.Reverse(3, queue);
 
         Console.WriteLine($"Output: {QueueReverser.Print(queue)}");
+    }
+
+    private static void TestQueueWithLinkedList()
+    {
+        ConsoleUtilities.PrintTitle("Testing the Queue With Linked List");
+
+        var queue = new QueueWithLinkedList();
+
+        queue.Enqueue(1);
+        queue.Enqueue(2);
+        queue.Enqueue(3);
+        queue.Enqueue(4);
+        queue.Enqueue(5);
+
+        Console.WriteLine($"Enqueue: {queue}");
+
+        queue.Dequeue();
+        queue.Dequeue();
+        queue.Dequeue();
+
+        Console.WriteLine($"Dequeue: {queue}");
+
+        Console.WriteLine($"Peek: {queue.Peek()}");
+
+        Console.WriteLine($"Size: {queue.Size()}");
     }
 }

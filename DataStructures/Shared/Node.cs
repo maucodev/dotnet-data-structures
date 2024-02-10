@@ -1,4 +1,4 @@
-﻿namespace DataStructures._02_LinkedLists;
+﻿namespace DataStructures.Shared;
 
 /// <summary>
 /// Represents a node in a linked list.
