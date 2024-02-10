@@ -1,38 +1,37 @@
 ﻿using DataStructures.Shared;
 
-namespace DataStructures._03_Stacks
+namespace DataStructures._03_Stacks;
+
+/// <summary>
+/// Provides methods to execute tests on the Stack class.
+/// </summary>
+public static class StackTests
 {
     /// <summary>
-    /// Provides methods to execute tests on the Stack class.
+    /// Executes various tests on the Stack class.
     /// </summary>
-    public static class StackTests
+    public static void Execute()
     {
-        /// <summary>
-        /// Executes various tests on the Stack class.
-        /// </summary>
-        public static void Execute()
-        {
-            ConsoleUtilities.PrintTitle("Testing the Push method");
+        ConsoleUtilities.PrintTitle("Testing the Push method");
 
-            var stack = new Stack();
+        var stack = new Stack();
 
-            stack.Push(10);
-            stack.Push(20);
-            stack.Push(30);
+        stack.Push(10);
+        stack.Push(20);
+        stack.Push(30);
 
-            Console.WriteLine($"{stack}\n");
+        Console.WriteLine($"{stack}\n");
 
-            ConsoleUtilities.PrintTitle("Testing the Pop method");
+        ConsoleUtilities.PrintTitle("Testing the Pop method");
             
-            stack.Pop();
+        stack.Pop();
             
-            Console.WriteLine($"{stack}\n");
+        Console.WriteLine($"{stack}\n");
 
-            ConsoleUtilities.PrintTitle("Testing the Peek method");
+        ConsoleUtilities.PrintTitle("Testing the Peek method");
 
-            Console.WriteLine($"{stack}");
-            Console.WriteLine($"Peeked value: {stack.Peek()}");
-            Console.WriteLine($"{stack}\n");
-        }
+        Console.WriteLine($"{stack}");
+        Console.WriteLine($"Peeked value: {stack.Peek()}");
+        Console.WriteLine($"{stack}\n");
     }
 }
