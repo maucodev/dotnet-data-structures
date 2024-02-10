@@ -16,6 +16,7 @@ public static class QueueTests
         TestCustomArrayQueue();
         TestCustomQueueWithTwoStacks();
         TestCustomPriorityQueue();
+        TestQueueReverser();
     }
 
     private static void TestStringReverser()
@@ -124,5 +125,24 @@ public static class QueueTests
         Console.WriteLine($"Removed: {priorityQueue.Remove()}\n");
             
         Console.WriteLine($"Queue: {priorityQueue}");
+    }
+
+    private static void TestQueueReverser()
+    {
+        ConsoleUtilities.PrintTitle("Testing the Queue Reverser");
+
+        var queue = new Queue<int>();
+
+        queue.Enqueue(10);
+        queue.Enqueue(20);
+        queue.Enqueue(30);
+        queue.Enqueue(40);
+        queue.Enqueue(50);
+
+        Console.WriteLine($"Input: {QueueReverser.Print(queue)}");
+
+        QueueReverser.Reverse(3, queue);
+
+        Console.WriteLine($"Output: {QueueReverser.Print(queue)}");
     }
 }
