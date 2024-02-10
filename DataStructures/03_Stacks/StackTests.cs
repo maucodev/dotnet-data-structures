@@ -3,18 +3,18 @@
 namespace DataStructures._03_Stacks
 {
     /// <summary>
-    /// Provides methods to execute tests on the CustomStack class.
+    /// Provides methods to execute tests on the Stack class.
     /// </summary>
-    public static class CustomStackTests
+    public static class StackTests
     {
         /// <summary>
-        /// Executes various tests on the CustomStack class.
+        /// Executes various tests on the Stack class.
         /// </summary>
         public static void Execute()
         {
             ConsoleUtilities.PrintTitle("Testing the Push method");
 
-            var stack = new CustomStack();
+            var stack = new Stack();
 
             stack.Push(10);
             stack.Push(20);

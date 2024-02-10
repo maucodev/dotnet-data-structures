@@ -5,7 +5,7 @@ namespace DataStructures._03_Stacks
     /// <summary>
     /// Represents a custom stack data structure.
     /// </summary>
-    public class CustomStack
+    public class Stack
     {
         private int _length;
         private readonly int[] _stack = new int[5];

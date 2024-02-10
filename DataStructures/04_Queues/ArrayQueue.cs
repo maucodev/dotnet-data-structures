@@ -5,7 +5,7 @@ namespace DataStructures._04_Queues
     /// <summary>
     /// Represents a circular queue implemented using an array.
     /// </summary>
-    public class CustomArrayQueue(int capacity)
+    public class ArrayQueue(int capacity)
     {
         private int _indexBack;
         private int _indexFront;

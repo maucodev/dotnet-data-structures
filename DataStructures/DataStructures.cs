@@ -18,19 +18,19 @@ namespace DataStructures
             switch (GetOption().KeyChar)
             {
                 case '1':
-                    CustomArrayTests.Execute();
+                    ArrayTests.Execute();
                     break;
 
                 case '2':
-                    CustomLinkedListTests.Execute();
+                    LinkedListTests.Execute();
                     break;
 
                 case '3':
-                    CustomStackTests.Execute();
+                    StackTests.Execute();
                     break;
 
                 case '4':
-                    CustomQueueTests.Execute();
+                    QueueTests.Execute();
                     break;
 
                 default:

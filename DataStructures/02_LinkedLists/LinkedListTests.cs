@@ -3,16 +3,16 @@
 namespace DataStructures._02_LinkedLists
 {
     /// <summary>
-    /// Contains methods to test the functionality of the CustomLinkedList class.
+    /// Contains methods to test the functionality of the LinkedList class.
     /// </summary>
-    public static class CustomLinkedListTests
+    public static class LinkedListTests
     {
         /// <summary>
-        /// Executes the tests for the CustomLinkedList class.
+        /// Executes the tests for the LinkedList class.
         /// </summary>
         public static void Execute()
         {
-            var numbers = new CustomLinkedList();
+            var numbers = new LinkedList();
 
             TestAddLast(numbers);
             TestAddFirst(numbers);
@@ -29,7 +29,7 @@ namespace DataStructures._02_LinkedLists
             TestHasLoop();
         }
 
-        private static void TestAddLast(CustomLinkedList numbers)
+        private static void TestAddLast(LinkedList numbers)
         {
             ConsoleUtilities.PrintTitle("Testing the AddLast method");
 
@@ -38,7 +38,7 @@ namespace DataStructures._02_LinkedLists
             numbers.Print();
         }
 
-        private static void TestAddFirst(CustomLinkedList numbers)
+        private static void TestAddFirst(LinkedList numbers)
         {
             ConsoleUtilities.PrintTitle("Testing the AddFirst method");
 
@@ -46,7 +46,7 @@ namespace DataStructures._02_LinkedLists
             numbers.Print();
         }
 
-        private static void TestIndexOf(CustomLinkedList numbers)
+        private static void TestIndexOf(LinkedList numbers)
         {
             ConsoleUtilities.PrintTitle("Testing the IndexOf method");
 
@@ -58,7 +58,7 @@ namespace DataStructures._02_LinkedLists
             numbers.Print();
         }
 
-        private static void TestContains(CustomLinkedList numbers)
+        private static void TestContains(LinkedList numbers)
         {
             ConsoleUtilities.PrintTitle("Testing the Contains method");
 
@@ -72,7 +72,7 @@ namespace DataStructures._02_LinkedLists
         {
             ConsoleUtilities.PrintTitle("Testing the RemoveFirst method");
 
-            var numbers = new CustomLinkedList();
+            var numbers = new LinkedList();
 
             numbers.AddFirst(1);
 
@@ -88,7 +88,7 @@ namespace DataStructures._02_LinkedLists
         {
             ConsoleUtilities.PrintTitle("Testing the RemoveLast method");
 
-            var numbers = new CustomLinkedList();
+            var numbers = new LinkedList();
             
             numbers.AddFirst(1);
             
@@ -110,7 +110,7 @@ namespace DataStructures._02_LinkedLists
         {
             ConsoleUtilities.PrintTitle("Testing the GetSize method");
 
-            var numbers = new CustomLinkedList();
+            var numbers = new LinkedList();
             
             numbers.AddFirst(1);
             numbers.AddLast(2);
@@ -125,7 +125,7 @@ namespace DataStructures._02_LinkedLists
         {
             ConsoleUtilities.PrintTitle("Testing the GetSizeV2 method");
 
-            var numbers = new CustomLinkedList();
+            var numbers = new LinkedList();
             
             numbers.AddFirst(1);
             numbers.AddLast(2);
@@ -141,7 +141,7 @@ namespace DataStructures._02_LinkedLists
         {
             ConsoleUtilities.PrintTitle("Testing the ToArray method");
             
-            var numbers = new CustomLinkedList();
+            var numbers = new LinkedList();
             
             numbers.AddFirst(1);
             numbers.AddLast(2);
@@ -156,7 +156,7 @@ namespace DataStructures._02_LinkedLists
         {
             ConsoleUtilities.PrintTitle("Testing the Reverse method");
 
-            var numbers = new CustomLinkedList();
+            var numbers = new LinkedList();
             
             numbers.AddFirst(1);
             numbers.AddLast(2);
@@ -172,7 +172,7 @@ namespace DataStructures._02_LinkedLists
         {
             ConsoleUtilities.PrintTitle("Testing the GetKthFromTheEnd method");
             
-            var numbers = new CustomLinkedList();
+            var numbers = new LinkedList();
             
             numbers.AddFirst(10);
             numbers.AddLast(20);
@@ -191,7 +191,7 @@ namespace DataStructures._02_LinkedLists
         {
             ConsoleUtilities.PrintTitle("Testing the PrintMiddle method");
 
-            var numbers = new CustomLinkedList();
+            var numbers = new LinkedList();
             
             numbers.AddFirst(1);
             numbers.AddLast(2);
@@ -214,7 +214,7 @@ namespace DataStructures._02_LinkedLists
         {
             ConsoleUtilities.PrintTitle("Testing the HasLoop method");
             
-            var numbers = new CustomLinkedList();
+            var numbers = new LinkedList();
             
             numbers.AddFirst(10);
             numbers.AddLast(20);

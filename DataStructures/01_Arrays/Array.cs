@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents a custom array data structure.
     /// </summary>
-    public class CustomArray(int size)
+    public class Array(int size)
     {
         private int _length;
         private int[] _array = new int[size];
@@ -111,9 +111,9 @@
         /// </summary>
         /// <param name="other">The other array to intersect with.</param>
         /// <returns>A new array containing the intersection of the two arrays.</returns>
-        public CustomArray Intersect(CustomArray other)
+        public Array Intersect(Array other)
         {
-            var result = new CustomArray(other.GetLength());
+            var result = new Array(other.GetLength());
 
             for (var i = 0; i < _length; i++)
             {
@@ -130,9 +130,9 @@
         /// Returns a new array containing the elements of the current array in reverse order.
         /// </summary>
         /// <returns>A new array containing the elements in reverse order.</returns>
-        public CustomArray Reverse()
+        public Array Reverse()
         {
-            var result = new CustomArray(_length);
+            var result = new Array(_length);
 
             for (var i = _length - 1; i >= 0; i--)
             {

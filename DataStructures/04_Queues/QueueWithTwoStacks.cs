@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents a queue implementation using two stacks.
     /// </summary>
-    public class CustomQueueWithTwoStacks
+    public class QueueWithTwoStacks
     {
         private readonly Stack<int> _stackEnqueue = new();
         private readonly Stack<int> _stackDequeue = new();

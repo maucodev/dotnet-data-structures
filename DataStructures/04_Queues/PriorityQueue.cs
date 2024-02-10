@@ -5,7 +5,7 @@ namespace DataStructures._04_Queues;
 /// <summary>
 /// Represents a custom priority queue implementation.
 /// </summary>
-public class CustomPriorityQueue
+public class PriorityQueue
 {
     private int _totalItems;
 

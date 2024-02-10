@@ -5,7 +5,7 @@ namespace DataStructures._04_Queues
     /// <summary>
     /// Provides methods to execute tests for custom queue implementations.
     /// </summary>
-    public static class CustomQueueTests
+    public static class QueueTests
     {
         /// <summary>
         /// Executes the tests for the custom queue implementations.
@@ -39,7 +39,7 @@ namespace DataStructures._04_Queues
         {
             ConsoleUtilities.PrintTitle("Testing the Custom Array Queue method");
 
-            var customQueue = new CustomArrayQueue(5);
+            var customQueue = new ArrayQueue(5);
             
             customQueue.Enqueue(10);
             customQueue.Enqueue(20);
@@ -83,7 +83,7 @@ namespace DataStructures._04_Queues
         {
             ConsoleUtilities.PrintTitle("Testing the Custom Queue With Two Stacks");
             
-            var customQueueWithTwoStacks = new CustomQueueWithTwoStacks();
+            var customQueueWithTwoStacks = new QueueWithTwoStacks();
             
             customQueueWithTwoStacks.Enqueue(10);
             customQueueWithTwoStacks.Enqueue(20);
@@ -103,7 +103,7 @@ namespace DataStructures._04_Queues
         {
             ConsoleUtilities.PrintTitle("Testing the Custom Priority Queue");
 
-            var priorityQueue = new CustomPriorityQueue();
+            var priorityQueue = new PriorityQueue();
             
             priorityQueue.Insert(1);
             priorityQueue.Insert(3);

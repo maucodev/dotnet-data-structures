@@ -5,7 +5,7 @@ namespace DataStructures._02_LinkedLists
     /// <summary>
     /// Represents a custom linked list data structure.
     /// </summary>
-    public class CustomLinkedList
+    public class LinkedList
     {
         private Node? _first;
         private Node? _last;

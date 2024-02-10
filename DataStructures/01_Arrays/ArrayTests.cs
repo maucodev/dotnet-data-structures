@@ -3,16 +3,16 @@
 namespace DataStructures._01_Arrays
 {
     /// <summary>
-    /// Contains methods to test the functionality of the CustomArray class.
+    /// Contains methods to test the functionality of the Array class.
     /// </summary>
-    public static class CustomArrayTests
+    public static class ArrayTests
     {
         /// <summary>
-        /// Executes the tests for the CustomArray class.
+        /// Executes the tests for the Array class.
         /// </summary>
         public static void Execute()
         {
-            var numbers = new CustomArray(3);
+            var numbers = new Array(3);
 
             TestInsert(numbers);
             TestIncrease(numbers);
@@ -24,7 +24,7 @@ namespace DataStructures._01_Arrays
             TestInsertAt();
         }
 
-        private static void TestInsert(CustomArray numbers)
+        private static void TestInsert(Array numbers)
         {
             ConsoleUtilities.PrintTitle("Testing the Insert method");
 
@@ -34,7 +34,7 @@ namespace DataStructures._01_Arrays
             numbers.Print();
         }
 
-        private static void TestIncrease(CustomArray numbers)
+        private static void TestIncrease(Array numbers)
         {
             ConsoleUtilities.PrintTitle("Testing the Increase method");
 
@@ -42,7 +42,7 @@ namespace DataStructures._01_Arrays
             numbers.Print();
         }
 
-        private static void TestRemoveAt(CustomArray numbers)
+        private static void TestRemoveAt(Array numbers)
         {
             ConsoleUtilities.PrintTitle("Testing the RemoveAt method");
 
@@ -63,7 +63,7 @@ namespace DataStructures._01_Arrays
             numbers.Print();
         }
 
-        private static void TestIndexOf(CustomArray numbers)
+        private static void TestIndexOf(Array numbers)
         {
             ConsoleUtilities.PrintTitle("Testing the IndexOf method");
 
@@ -73,7 +73,7 @@ namespace DataStructures._01_Arrays
             Console.WriteLine($"Index of number 4: {numbers.IndexOf(100)}\n");
         }
 
-        private static void TestMax(CustomArray numbers)
+        private static void TestMax(Array numbers)
         {
             ConsoleUtilities.PrintTitle("Testing the Max method");
 
@@ -87,11 +87,11 @@ namespace DataStructures._01_Arrays
             Console.WriteLine($"Max number: {numbers.Max()}\n");
         }
 
-        private static void TestIntersect(CustomArray numbers)
+        private static void TestIntersect(Array numbers)
         {
             ConsoleUtilities.PrintTitle("Testing the Intersect method");
 
-            var intersectTest = new CustomArray(5);
+            var intersectTest = new Array(5);
             
             intersectTest.Insert(1);
             intersectTest.Insert(3);
@@ -110,7 +110,7 @@ namespace DataStructures._01_Arrays
         {
             ConsoleUtilities.PrintTitle("Testing the Reverse method");
 
-            var reverseTest = new CustomArray(5);
+            var reverseTest = new Array(5);
 
             reverseTest.Insert(1);
             reverseTest.Insert(2);
@@ -127,7 +127,7 @@ namespace DataStructures._01_Arrays
         {
             ConsoleUtilities.PrintTitle("Testing the InsertAt method");
 
-            var insertAtTest = new CustomArray(3);
+            var insertAtTest = new Array(3);
 
             insertAtTest.Insert(1);
             insertAtTest.Insert(3);
