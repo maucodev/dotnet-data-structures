@@ -14,12 +14,9 @@ namespace DataStructures._05_HashTables
         {
             TestTheFindFirstNonRepeatingCharAlgorithm("a green apple");
             TestTheFirstRepeatedCharAlgorithm("green apple");
+            TestHashTable();
         }
 
-        /// <summary>
-        /// Tests the FindFirstNonRepeatingCharAlgorithm method.
-        /// </summary>
-        /// <param name="input">The input string.</param>
         private static void TestTheFindFirstNonRepeatingCharAlgorithm(string input)
         {
             ConsoleUtilities.PrintTitle("Find the First Non Repeating Char");
@@ -43,10 +40,6 @@ namespace DataStructures._05_HashTables
             Console.WriteLine($"The first non repeating char is '{result.Key}' with {result.Value} occurrences");
         }
 
-        /// <summary>
-        /// Tests the FirstRepeatedCharAlgorithm method.
-        /// </summary>
-        /// <param name="input">The input string.</param>
         private static void TestTheFirstRepeatedCharAlgorithm(string input)
         {
             ConsoleUtilities.PrintTitle("First Repeated Char");
@@ -65,6 +58,30 @@ namespace DataStructures._05_HashTables
             Console.WriteLine(repeatedChar == default
                 ? "There are not repeated char"
                 : $"The first repeated char is '{repeatedChar}'");
+        }
+
+        private static void TestHashTable()
+        {
+            ConsoleUtilities.PrintTitle("Hash Table");
+
+            var hashTable = new HashTable();
+
+            hashTable.Put(1, "a");
+            hashTable.Put(2, "b");
+            hashTable.Put(3, "c");
+            hashTable.Put(4, "d");
+            hashTable.Put(5, "e");
+            hashTable.Put(6, "f");
+            hashTable.Put(6, "g");
+            hashTable.Put(11, "h");
+
+            Console.WriteLine($"Key = {1}, Value = {hashTable.Get(1) ?? "?"}");
+            Console.WriteLine($"Key = {6}, Value = {hashTable.Get(6) ?? "?"}");
+            Console.WriteLine($"Key = {10}, Value = {hashTable.Get(10) ?? "?"}");
+            Console.WriteLine($"Key = {11}, Value = {hashTable.Get(11) ?? "?"}");
+
+            hashTable.Remove(6);
+            Console.WriteLine($"Key = {6}, Value = {hashTable.Get(6) ?? "?"}");
         }
     }
 }
