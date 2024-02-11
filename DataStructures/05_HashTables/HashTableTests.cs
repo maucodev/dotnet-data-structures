@@ -1,55 +1,70 @@
 ﻿using DataStructures.Shared;
 
-namespace DataStructures._05_HashTables;
-
-public static class HashTableTests
+namespace DataStructures._05_HashTables
 {
-    public static void Execute()
+    /// <summary>
+    /// Provides methods to test hash table algorithms.
+    /// </summary>
+    public static class HashTableTests
     {
-        FindFirstNonRepeatingChar("a green apple");
-        FirstRepeatedChar("green apple");
-    }
-
-    private static void FindFirstNonRepeatingChar(string input)
-    {
-        ConsoleUtilities.PrintTitle("Find the First Non Repeating Char");
-
-        if (string.IsNullOrEmpty(input))
+        /// <summary>
+        /// Executes the hash table tests.
+        /// </summary>
+        public static void Execute()
         {
-            throw new InvalidOperationException("The input is invalid");
+            TestTheFindFirstNonRepeatingCharAlgorithm("a green apple");
+            TestTheFirstRepeatedCharAlgorithm("green apple");
         }
 
-        var hashTable = new Dictionary<char, int>();
-        
-        foreach (var item in input.Where(item => !hashTable.TryAdd(item, 1)))
+        /// <summary>
+        /// Tests the FindFirstNonRepeatingCharAlgorithm method.
+        /// </summary>
+        /// <param name="input">The input string.</param>
+        private static void TestTheFindFirstNonRepeatingCharAlgorithm(string input)
         {
-            hashTable[item]++;
+            ConsoleUtilities.PrintTitle("Find the First Non Repeating Char");
+
+            if (string.IsNullOrEmpty(input))
+            {
+                throw new InvalidOperationException("The input is invalid");
+            }
+
+            var hashTable = new Dictionary<char, int>();
+
+            foreach (var item in input.Where(item => !hashTable.TryAdd(item, 1)))
+            {
+                hashTable[item]++;
+            }
+
+            var result = hashTable.MinBy(item => item.Value);
+
+            Console.WriteLine($"Input: {input}\n");
+
+            Console.WriteLine($"The first non repeating char is '{result.Key}' with {result.Value} occurrences");
         }
 
-        var result = hashTable.MinBy(item => item.Value);
-
-        Console.WriteLine($"Input: {input}\n");
-        
-        Console.WriteLine($"The first non repeating char is '{result.Key}' with {result.Value} occurrences");
-    }
-
-    private static void FirstRepeatedChar(string input)
-    {
-        ConsoleUtilities.PrintTitle("First Repeated Char");
-
-        if (string.IsNullOrEmpty(input))
+        /// <summary>
+        /// Tests the FirstRepeatedCharAlgorithm method.
+        /// </summary>
+        /// <param name="input">The input string.</param>
+        private static void TestTheFirstRepeatedCharAlgorithm(string input)
         {
-            throw new InvalidOperationException("The input is invalid");
+            ConsoleUtilities.PrintTitle("First Repeated Char");
+
+            if (string.IsNullOrEmpty(input))
+            {
+                throw new InvalidOperationException("The input is invalid");
+            }
+
+            var hashTable = new HashSet<char>();
+
+            var repeatedChar = input.FirstOrDefault(item => !hashTable.Add(item));
+
+            Console.WriteLine($"Input: {input}\n");
+
+            Console.WriteLine(repeatedChar == default
+                ? "There are not repeated char"
+                : $"The first repeated char is '{repeatedChar}'");
         }
-
-        var hashTable = new HashSet<char>();
-
-        var repeatedChar = input.FirstOrDefault(item => !hashTable.Add(item));
-
-        Console.WriteLine($"Input: {input}\n");
-
-        Console.WriteLine(repeatedChar == default
-            ? "There are not repeated char"
-            : $"The first repeated char is '{repeatedChar}'");
     }
 }
