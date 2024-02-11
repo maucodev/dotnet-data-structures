@@ -3,6 +3,7 @@ using DataStructures._02_LinkedLists;
 using DataStructures._03_Stacks;
 using DataStructures._04_Queues;
 using DataStructures._05_HashTables;
+using DataStructures.Shared;
 
 namespace DataStructures;
 
@@ -52,6 +53,8 @@ public static class DataStructures
     /// <returns>The selected option as a ConsoleKeyInfo object.</returns>
     private static ConsoleKeyInfo GetOption()
     {
+        ConsoleUtilities.PrintTitle("Data Structures Project");
+
         Console.Write("What data structure do you want to run? ");
 
         var input = Console.ReadKey();

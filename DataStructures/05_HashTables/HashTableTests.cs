@@ -80,8 +80,8 @@ namespace DataStructures._05_HashTables
             Console.WriteLine($"Key = {10}, Value = {hashTable.Get(10) ?? "?"}");
             Console.WriteLine($"Key = {11}, Value = {hashTable.Get(11) ?? "?"}");
 
-            hashTable.Remove(6);
-            Console.WriteLine($"Key = {6}, Value = {hashTable.Get(6) ?? "?"}");
+            hashTable.Remove(3);
+            Console.WriteLine($"Key = {6}, Value = {hashTable.Get(3) ?? "?"}");
         }
     }
 }
