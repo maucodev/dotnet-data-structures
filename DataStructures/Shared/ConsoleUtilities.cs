@@ -11,6 +11,7 @@ public static class ConsoleUtilities
     /// <param name="title">The title to print.</param>
     public static void PrintTitle(string title)
     {
+        Console.WriteLine();
         Console.WriteLine(new string('-', 40));
         Console.WriteLine($"   {title.ToUpper()}   ");
         Console.WriteLine(new string('-', 40));

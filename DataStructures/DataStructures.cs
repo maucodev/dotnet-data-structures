@@ -2,6 +2,7 @@
 using DataStructures._02_LinkedLists;
 using DataStructures._03_Stacks;
 using DataStructures._04_Queues;
+using DataStructures._05_HashTables;
 
 namespace DataStructures;
 
@@ -31,6 +32,10 @@ public static class DataStructures
 
             case '4':
                 QueueTests.Execute();
+                break;
+
+            case '5':
+                HashTableTests.Execute();
                 break;
 
             default:
