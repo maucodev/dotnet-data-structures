@@ -16,4 +16,10 @@ public class Entry(int key, string value)
     /// Gets or sets the value of the entry.
     /// </summary>
     public string Value { get; set; } = value;
+
+    /// <inheritdoc />
+    public override string ToString()
+    {
+        return Value;
+    }
 }

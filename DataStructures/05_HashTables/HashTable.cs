@@ -3,6 +3,7 @@
 /// <summary>
 /// Represents a hash table data structure.
 /// </summary>
+/// <remarks>This implementation uses the Chaining strategy for handling collisions.</remarks>
 public class HashTable
 {
     private readonly LinkedList<Entry>?[] _entries = new LinkedList<Entry>[5];
@@ -39,7 +40,7 @@ public class HashTable
     }
 
     /// <summary>
-    /// Finds the entry with the specified key in the given bucket.
+    /// Finds the entry with the specified key.
     /// </summary>
     /// <param name="key">The key to search for.</param>
     /// <returns>The entry with the specified key, or null if not found.</returns>
