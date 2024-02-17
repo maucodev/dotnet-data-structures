@@ -202,6 +202,17 @@ public class Tree
         return result.ToString();
     }
 
+    /// <summary>
+    /// Performs a level-order traversal of the tree.
+    /// </summary>
+    public void TraverseLevelOrder()
+    {
+        for (var i = 0; i <= Height(); i++)
+        {
+            Console.WriteLine($"\nNodes at level {i}: {GetNodesAtKDistance(i)}");
+        }
+    }
+
     private static void TraversePreOrder(TreeNode? root)
     {
         if (root == null)
