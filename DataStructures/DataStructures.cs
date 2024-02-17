@@ -3,6 +3,7 @@ using DataStructures._02_LinkedLists;
 using DataStructures._03_Stacks;
 using DataStructures._04_Queues;
 using DataStructures._05_HashTables;
+using DataStructures._06_BinaryTrees;
 using DataStructures.Shared;
 
 namespace DataStructures;
@@ -37,6 +38,10 @@ public static class DataStructures
 
             case '5':
                 HashTableTests.Execute();
+                break;
+
+            case '6':
+                BinaryTreeTests.Execute();
                 break;
 
             default:
