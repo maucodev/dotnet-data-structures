@@ -111,6 +111,38 @@ public class Tree
         return Height(_root);
     }
 
+    /// <summary>
+    /// Finds the minimum value in a binary tree.
+    /// </summary>
+    /// <returns>The minimum value in the tree.</returns>
+    public int MinBinaryTreeValue()
+    {
+        return Min(_root);
+    }
+
+    /// <summary>
+    /// Finds the minimum value in a no binary tree.
+    /// </summary>
+    /// <returns>The minimum value in the tree.</returns>
+    public int Min()
+    {
+        if (_root == null)
+        {
+            throw new InvalidOperationException("The tree is empty");
+        }
+
+        var current = _root;
+        var last = current;
+
+        while (current != null)
+        {
+            last = current;
+            current = current.LeftChild;
+        }
+
+        return last.Value;
+    }
+
     private static void TraversePreOrder(TreeNode? root)
     {
         if (root == null)
@@ -154,7 +186,7 @@ public class Tree
             return -1;
         }
 
-        if (root.LeftChild == null && root.RightChild == null)
+        if (IsLeaf(root))
         {
             return 0;
         }
@@ -162,8 +194,26 @@ public class Tree
         return 1 + Math.Max(Height(root.LeftChild), Height(root.RightChild));
     }
 
+    private static int Min(TreeNode? root)
+    {
+        if (IsLeaf(root))
+        {
+            return root?.Value ?? 0;
+        }
+
+        var minLeft = Min(root?.LeftChild);
+        var minRight = Min(root?.RightChild);
+
+        return Math.Min(Math.Min(minLeft, minRight), root?.Value ?? int.MaxValue);
+    }
+
     private bool IsEmpty()
     {
         return _root == null;
+    }
+
+    private static bool IsLeaf(TreeNode? node)
+    {
+        return node?.LeftChild == null && node?.RightChild == null;
     }
 }

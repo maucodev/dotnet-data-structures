@@ -54,6 +54,10 @@ public static class BinaryTreeTests
 
         tree.TraversePostOrder();
 
-        Console.WriteLine($"\nThe height of the tree is: {tree.Height()}\n");
+        Console.WriteLine($"\nThe height of the tree is: {tree.Height()}");
+
+        Console.WriteLine($"\nThe min value (binary tree) is: {tree.MinBinaryTreeValue()}");
+
+        Console.WriteLine($"\nThe min value (no binary tree) is: {tree.Min()}");
     }
 }
