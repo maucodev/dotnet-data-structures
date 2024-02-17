@@ -18,6 +18,7 @@ public static class TreeTests
         TestValidatingBinarySearchTree();
         TestKDistanceFromRoot();
         TestLevelOrderTraversal();
+        TestBinaryTreeFunctions();
     }
 
     private static void TestBinaryTree()
@@ -153,5 +154,36 @@ public static class TreeTests
         tree.Insert(10);
 
         tree.TraverseLevelOrder();
+    }
+
+    private static void TestBinaryTreeFunctions()
+    {
+        ConsoleUtilities.PrintHeaderTitle("Binary Tree Functions");
+
+        var tree = new BinaryTree();
+
+        tree.Insert(7);
+        tree.Insert(4);
+        tree.Insert(9);
+        tree.Insert(1);
+        tree.Insert(6);
+        tree.Insert(8);
+        tree.Insert(10);
+
+        Console.WriteLine($"The size is: {tree.Size()}\n");
+
+        Console.WriteLine($"The total leaves is: {tree.TotalLeaves()}\n");
+
+        Console.WriteLine($"The max value is: {tree.Max()}\n");
+
+        Console.WriteLine($"Contains the 9 value: {tree.Contains(9)}\n");
+
+        Console.WriteLine($"Contains the 15 value: {tree.Contains(15)}\n");
+
+        Console.WriteLine($"Are 7 and 1 sibling: {tree.AreSibling(7, 1)}\n");
+
+        Console.WriteLine($"Are 8 and 10 sibling: {tree.AreSibling(8, 10)}\n");
+
+        Console.WriteLine($"The ancestors of 10 are: {tree.GetAncestors(10)}\n");
     }
 }

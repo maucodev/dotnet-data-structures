@@ -3,12 +3,15 @@ using DataStructures.Shared;
 
 namespace DataStructures._06_Trees;
 
+/// <summary>
+/// Represents a tree data structure.
+/// </summary>
 [System.Diagnostics.CodeAnalysis.SuppressMessage("Minor Code Smell", "S3897:Classes that provide \"Equals(<T>)\" should implement \"IEquatable<T>\"", Justification = "We are building our method.")]
 #pragma warning disable S4035
 public class Tree
 #pragma warning restore S4035
 {
-    private TreeNode? _root;
+    internal TreeNode? Root;
 
     /// <summary>
     /// Inserts a value to the tree.
@@ -20,11 +23,11 @@ public class Tree
 
         if (IsEmpty())
         {
-            _root = node;
+            Root = node;
             return;
         }
 
-        var current = _root;
+        var current = Root;
 
         while (true)
         {
@@ -58,7 +61,7 @@ public class Tree
     /// <returns><c>true</c> if the value is found in the tree; otherwise, <c>false</c>.</returns>
     public bool Find(int value)
     {
-        var current = _root;
+        var current = Root;
 
         while (current != null)
         {
@@ -85,7 +88,7 @@ public class Tree
     public void TraversePreOrder()
     {
         Console.WriteLine("\nTraverse Pre-Order...\n");
-        TraversePreOrder(_root);
+        TraversePreOrder(Root);
     }
 
     /// <summary>
@@ -94,7 +97,7 @@ public class Tree
     public void TraverseInOrder()
     {
         Console.WriteLine("\nTraverse In-Order...\n");
-        TraverseInOrder(_root);
+        TraverseInOrder(Root);
     }
 
     /// <summary>
@@ -103,7 +106,7 @@ public class Tree
     public void TraversePostOrder()
     {
         Console.WriteLine("\nTraverse Post-Order...\n");
-        TraversePostOrder(_root);
+        TraversePostOrder(Root);
     }
 
     /// <summary>
@@ -112,7 +115,7 @@ public class Tree
     /// <returns>The height of the tree.</returns>
     public int Height()
     {
-        return Height(_root);
+        return Height(Root);
     }
 
     /// <summary>
@@ -121,12 +124,12 @@ public class Tree
     /// <returns>The minimum value in the tree.</returns>
     public int MinBinaryTreeValue()
     {
-        if (_root == null)
+        if (Root == null)
         {
             throw new InvalidOperationException("The tree is empty");
         }
 
-        return Min(_root);
+        return Min(Root);
     }
 
     /// <summary>
@@ -135,12 +138,12 @@ public class Tree
     /// <returns>The minimum value in the tree.</returns>
     public int Min()
     {
-        if (_root == null)
+        if (Root == null)
         {
             throw new InvalidOperationException("The tree is empty");
         }
 
-        var current = _root;
+        var current = Root;
         var last = current;
 
         while (current != null)
@@ -159,7 +162,7 @@ public class Tree
     /// <returns><c>true</c> if the trees are equal; otherwise, <c>false</c>.</returns>
     public bool Equals(Tree? other)
     {
-        return other != null && Equals(_root, other._root);
+        return other != null && Equals(Root, other.Root);
     }
 
     /// <summary>
@@ -168,7 +171,7 @@ public class Tree
     /// <returns><c>true</c> if the tree is a binary search tree; otherwise, <c>false</c>.</returns>
     public bool IsBinarySearchTree()
     {
-        return IsBinarySearchTree(_root, int.MinValue, int.MaxValue);
+        return IsBinarySearchTree(Root, int.MinValue, int.MaxValue);
     }
 
     /// <summary>
@@ -176,15 +179,15 @@ public class Tree
     /// </summary>
     public void SwapRoot()
     {
-        var relay = _root?.LeftChild;
+        var relay = Root?.LeftChild;
 
-        if (_root == null)
+        if (Root == null)
         {
             return;
         }
 
-        _root.LeftChild = _root.RightChild;
-        _root.RightChild = relay;
+        Root.LeftChild = Root.RightChild;
+        Root.RightChild = relay;
     }
 
     /// <summary>
@@ -195,7 +198,7 @@ public class Tree
     {
         var result = new StringBuilder("[");
 
-        GetNodesAtKDistance(_root, k, result);
+        GetNodesAtKDistance(Root, k, result);
 
         result.Append(']');
 
@@ -330,10 +333,10 @@ public class Tree
 
     private bool IsEmpty()
     {
-        return _root == null;
+        return Root == null;
     }
 
-    private static bool IsLeaf(TreeNode? node)
+    internal static bool IsLeaf(TreeNode? node)
     {
         return node?.LeftChild == null && node?.RightChild == null;
     }
