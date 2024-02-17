@@ -24,5 +24,8 @@ public static class AvlTreeTests
         tree.Insert(10);
         tree.Insert(20);
         tree.Insert(30);
+        tree.Insert(40);
+
+        Console.WriteLine($"Is balanced: {tree.IsBalanced()}");
     }
 }

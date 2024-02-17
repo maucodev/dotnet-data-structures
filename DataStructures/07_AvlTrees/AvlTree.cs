@@ -16,6 +16,15 @@ public class AvlTree
         _root = Insert(_root, value);
     }
 
+    /// <summary>
+    /// Checks whether the AVL tree is balanced.
+    /// </summary>
+    /// <returns><c>true</c> if the tree is balanced; otherwise, <c>false</c>.</returns>
+    public bool IsBalanced()
+    {
+        return IsBalanced(_root);
+    }
+
     private static Node? Balance(Node? root)
     {
         if (IsLeftHeavy(root))
@@ -52,6 +61,20 @@ public class AvlTree
     private static int Height(Node? node)
     {
         return node?.Height ?? -1;
+    }
+
+    private static bool IsBalanced(Node? root)
+    {
+        if (root == null)
+        {
+            return true;
+        }
+
+        var balanceFactor = BalanceFactor(root.LeftChild) - BalanceFactor(root.RightChild);
+
+        return Math.Abs(balanceFactor) <= 1 &&
+               IsBalanced(root.LeftChild) && 
+               IsBalanced(root.RightChild);
     }
 
     private static bool IsLeftHeavy(Node? node)
