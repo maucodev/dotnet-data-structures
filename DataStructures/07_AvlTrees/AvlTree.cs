@@ -16,6 +16,11 @@ public class AvlTree
         _root = Insert(_root, value);
     }
 
+    private static int Height(Node? node)
+    {
+        return node?.Height ?? -1;
+    }
+
     private static Node Insert(Node? root, int value)
     {
         if (root == null)
@@ -31,6 +36,9 @@ public class AvlTree
         {
             root.RightChild = Insert(root.RightChild, value);
         }
+
+        // We need to calculate the height for balancing the tree
+        root.Height = Math.Max(Height(root.LeftChild), Height(root.RightChild)) + 1;
 
         return root;
     }
