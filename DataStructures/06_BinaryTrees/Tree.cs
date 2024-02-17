@@ -102,6 +102,15 @@ public class Tree
         TraversePostOrder(_root);
     }
 
+    /// <summary>
+    /// Calculates the height of the tree.
+    /// </summary>
+    /// <returns>The height of the tree.</returns>
+    public int Height()
+    {
+        return Height(_root);
+    }
+
     private static void TraversePreOrder(TreeNode? root)
     {
         if (root == null)
@@ -136,6 +145,21 @@ public class Tree
         TraversePreOrder(root.LeftChild);
         TraversePreOrder(root.RightChild);
         Console.WriteLine(root.Value);
+    }
+
+    private static int Height(TreeNode? root)
+    {
+        if (root == null)
+        {
+            return -1;
+        }
+
+        if (root.LeftChild == null && root.RightChild == null)
+        {
+            return 0;
+        }
+
+        return 1 + Math.Max(Height(root.LeftChild), Height(root.RightChild));
     }
 
     private bool IsEmpty()

@@ -53,5 +53,7 @@ public static class BinaryTreeTests
         tree.TraverseInOrder();
 
         tree.TraversePostOrder();
+
+        Console.WriteLine($"\nThe height of the tree is: {tree.Height()}\n");
     }
 }
