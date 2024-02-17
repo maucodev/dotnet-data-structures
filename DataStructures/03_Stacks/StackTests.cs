@@ -18,7 +18,7 @@ public static class StackTests
 
     private static void TestStack()
     {
-        ConsoleUtilities.PrintTitle("Testing the Push method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the Push method");
 
         var stack = new Stack();
 
@@ -28,13 +28,13 @@ public static class StackTests
 
         Console.WriteLine($"{stack}\n");
 
-        ConsoleUtilities.PrintTitle("Testing the Pop method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the Pop method");
             
         stack.Pop();
             
         Console.WriteLine($"{stack}\n");
 
-        ConsoleUtilities.PrintTitle("Testing the Peek method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the Peek method");
 
         Console.WriteLine($"{stack}");
         Console.WriteLine($"Peeked value: {stack.Peek()}");
@@ -43,7 +43,7 @@ public static class StackTests
 
     private static void TestStackWithTwoQueue()
     {
-        ConsoleUtilities.PrintTitle("Testing Stack With Two Queues");
+        ConsoleUtilities.PrintHeaderTitle("Testing Stack With Two Queues");
 
         var stack = new StackWithTwoQueues();
 

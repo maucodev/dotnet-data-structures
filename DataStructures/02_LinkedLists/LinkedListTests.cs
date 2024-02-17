@@ -31,7 +31,7 @@ public static class LinkedListTests
 
     private static void TestAddLast(LinkedList numbers)
     {
-        ConsoleUtilities.PrintTitle("Testing the AddLast method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the AddLast method");
 
         numbers.AddLast(2);
         numbers.AddLast(3);
@@ -40,7 +40,7 @@ public static class LinkedListTests
 
     private static void TestAddFirst(LinkedList numbers)
     {
-        ConsoleUtilities.PrintTitle("Testing the AddFirst method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the AddFirst method");
 
         numbers.AddFirst(1);
         numbers.Print();
@@ -48,7 +48,7 @@ public static class LinkedListTests
 
     private static void TestIndexOf(LinkedList numbers)
     {
-        ConsoleUtilities.PrintTitle("Testing the IndexOf method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the IndexOf method");
 
         Console.WriteLine($"Index of 1: {numbers.IndexOf(1)}");
         Console.WriteLine($"Index of 2: {numbers.IndexOf(2)}");
@@ -60,7 +60,7 @@ public static class LinkedListTests
 
     private static void TestContains(LinkedList numbers)
     {
-        ConsoleUtilities.PrintTitle("Testing the Contains method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the Contains method");
 
         Console.WriteLine($"Contains 1: {numbers.Contains(1)}");
         Console.WriteLine($"Contains 4: {numbers.Contains(4)}");
@@ -70,7 +70,7 @@ public static class LinkedListTests
 
     private static void TestRemoveFirst()
     {
-        ConsoleUtilities.PrintTitle("Testing the RemoveFirst method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the RemoveFirst method");
 
         var numbers = new LinkedList();
 
@@ -86,7 +86,7 @@ public static class LinkedListTests
 
     private static void TestRemoveLast()
     {
-        ConsoleUtilities.PrintTitle("Testing the RemoveLast method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the RemoveLast method");
 
         var numbers = new LinkedList();
             
@@ -108,7 +108,7 @@ public static class LinkedListTests
 
     private static void TestGetSize()
     {
-        ConsoleUtilities.PrintTitle("Testing the GetSize method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the GetSize method");
 
         var numbers = new LinkedList();
             
@@ -123,7 +123,7 @@ public static class LinkedListTests
 
     private static void TestGetSizeV2()
     {
-        ConsoleUtilities.PrintTitle("Testing the GetSizeV2 method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the GetSizeV2 method");
 
         var numbers = new LinkedList();
             
@@ -139,7 +139,7 @@ public static class LinkedListTests
 
     private static void TestToArray()
     {
-        ConsoleUtilities.PrintTitle("Testing the ToArray method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the ToArray method");
             
         var numbers = new LinkedList();
             
@@ -154,7 +154,7 @@ public static class LinkedListTests
 
     private static void TestReverse()
     {
-        ConsoleUtilities.PrintTitle("Testing the Reverse method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the Reverse method");
 
         var numbers = new LinkedList();
             
@@ -170,7 +170,7 @@ public static class LinkedListTests
 
     private static void TestGetKthFromTheEnd()
     {
-        ConsoleUtilities.PrintTitle("Testing the GetKthFromTheEnd method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the GetKthFromTheEnd method");
             
         var numbers = new LinkedList();
             
@@ -189,7 +189,7 @@ public static class LinkedListTests
 
     private static void TestPrintMiddle()
     {
-        ConsoleUtilities.PrintTitle("Testing the PrintMiddle method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the PrintMiddle method");
 
         var numbers = new LinkedList();
             
@@ -212,7 +212,7 @@ public static class LinkedListTests
 
     private static void TestHasLoop()
     {
-        ConsoleUtilities.PrintTitle("Testing the HasLoop method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the HasLoop method");
             
         var numbers = new LinkedList();
             

@@ -58,7 +58,7 @@ public static class DataStructures
     /// <returns>The selected option as a ConsoleKeyInfo object.</returns>
     private static ConsoleKeyInfo GetOption()
     {
-        ConsoleUtilities.PrintTitle("Data Structures Project");
+        ConsoleUtilities.PrintHeaderTitle("Data Structures Project");
 
         Console.Write("What data structure do you want to run? ");
 

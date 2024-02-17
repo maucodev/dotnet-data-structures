@@ -76,34 +76,70 @@ public class Tree
     }
 
     /// <summary>
-    /// Prints the tree with its nodes and leaves using inorder traversal.
+    /// Performs a pre-order traversal of the tree.
     /// </summary>
-    public void Print()
+    public void TraversePreOrder()
     {
-        PrintInorder(_root);
+        Console.WriteLine("\nTraverse Pre-Order...\n");
+        TraversePreOrder(_root);
+    }
+
+    /// <summary>
+    /// Performs an in-order traversal of the tree.
+    /// </summary>
+    public void TraverseInOrder()
+    {
+        Console.WriteLine("\nTraverse In-Order...\n");
+        TraverseInOrder(_root);
+    }
+
+    /// <summary>
+    /// Performs a post-order traversal of the tree.
+    /// </summary>
+    public void TraversePostOrder()
+    {
+        Console.WriteLine("\nTraverse Post-Order...\n");
+        TraversePostOrder(_root);
+    }
+
+    private static void TraversePreOrder(TreeNode? root)
+    {
+        if (root == null)
+        {
+            return;
+        }
+
+        Console.WriteLine(root.Value);
+        TraversePreOrder(root.LeftChild);
+        TraversePreOrder(root.RightChild);
+    }
+
+    private static void TraverseInOrder(TreeNode? root)
+    {
+        if (root == null)
+        {
+            return;
+        }
+
+        TraversePreOrder(root.LeftChild);
+        Console.WriteLine(root.Value);
+        TraversePreOrder(root.RightChild);
+    }
+
+    private static void TraversePostOrder(TreeNode? root)
+    {
+        if (root == null)
+        {
+            return;
+        }
+
+        TraversePreOrder(root.LeftChild);
+        TraversePreOrder(root.RightChild);
+        Console.WriteLine(root.Value);
     }
 
     private bool IsEmpty()
     {
         return _root == null;
-    }
-
-    private void PrintInorder(TreeNode? node)
-    {
-        while (true)
-        {
-            if (node == null)
-            {
-                return;
-            }
-
-            PrintInorder(node.LeftChild);
-
-            Console.WriteLine(_root != null && node.Value == _root.Value 
-                ? $"<Root>: {node.Value}" 
-                : $"Node: {node.Value}");
-
-            node = node.RightChild;
-        }
     }
 }

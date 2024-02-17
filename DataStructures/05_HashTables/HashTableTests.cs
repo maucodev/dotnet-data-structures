@@ -22,7 +22,7 @@ namespace DataStructures._05_HashTables
 
         private static void TestTheFindFirstNonRepeatingCharAlgorithm(string input)
         {
-            ConsoleUtilities.PrintTitle("Find the First Non Repeating Char");
+            ConsoleUtilities.PrintHeaderTitle("Find the First Non Repeating Char");
 
             if (string.IsNullOrEmpty(input))
             {
@@ -45,7 +45,7 @@ namespace DataStructures._05_HashTables
 
         private static void TestTheFirstRepeatedCharAlgorithm(string input)
         {
-            ConsoleUtilities.PrintTitle("First Repeated Char");
+            ConsoleUtilities.PrintHeaderTitle("First Repeated Char");
 
             if (string.IsNullOrEmpty(input))
             {
@@ -65,7 +65,7 @@ namespace DataStructures._05_HashTables
 
         private static void TestHashTable()
         {
-            ConsoleUtilities.PrintTitle("Hash Table");
+            ConsoleUtilities.PrintHeaderTitle("Hash Table");
 
             var hashTable = new HashTable();
 
@@ -89,7 +89,7 @@ namespace DataStructures._05_HashTables
 
         private static void TestMostFrequent()
         {
-            ConsoleUtilities.PrintTitle("Most Frequent");
+            ConsoleUtilities.PrintHeaderTitle("Most Frequent");
 
             var input = new[] { 1, 2, 2, 3, 3, 3, 4 };
             
@@ -108,7 +108,7 @@ namespace DataStructures._05_HashTables
 
         private static void TestCountPairsWithKDifference(int k = 2)
         {
-            ConsoleUtilities.PrintTitle("Count Pairs With 'K' Difference");
+            ConsoleUtilities.PrintHeaderTitle("Count Pairs With 'K' Difference");
 
             var totalPairs = 0;
             var input = new[] { 1, 7, 5, 9, 2, 12, 3 };
@@ -135,7 +135,7 @@ namespace DataStructures._05_HashTables
 
         private static void TestTwoSum(int target = 9)
         {
-            ConsoleUtilities.PrintTitle("Two SUM");
+            ConsoleUtilities.PrintHeaderTitle("Two SUM");
 
             var input = new[] { 2, 7, 11, 15 };
 

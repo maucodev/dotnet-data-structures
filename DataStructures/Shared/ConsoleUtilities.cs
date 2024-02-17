@@ -9,7 +9,7 @@ public static class ConsoleUtilities
     /// Prints a title with visual formatting in the console.
     /// </summary>
     /// <param name="title">The title to print.</param>
-    public static void PrintTitle(string title)
+    public static void PrintHeaderTitle(string title)
     {
         Console.WriteLine();
         Console.WriteLine(new string('-', 40));

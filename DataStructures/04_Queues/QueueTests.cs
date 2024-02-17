@@ -22,7 +22,7 @@ public static class QueueTests
 
     private static void TestStringReverser()
     {
-        ConsoleUtilities.PrintTitle("Testing the Reverse method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the Reverse method");
 
         var queue = new Queue<string>();
             
@@ -39,7 +39,7 @@ public static class QueueTests
 
     private static void TestCustomArrayQueue()
     {
-        ConsoleUtilities.PrintTitle("Testing the Custom Array Queue method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the Custom Array Queue method");
 
         var customQueue = new ArrayQueue(5);
             
@@ -83,7 +83,7 @@ public static class QueueTests
 
     private static void TestCustomQueueWithTwoStacks()
     {
-        ConsoleUtilities.PrintTitle("Testing the Custom Queue With Two Stacks");
+        ConsoleUtilities.PrintHeaderTitle("Testing the Custom Queue With Two Stacks");
             
         var customQueueWithTwoStacks = new QueueWithTwoStacks();
             
@@ -103,7 +103,7 @@ public static class QueueTests
 
     private static void TestCustomPriorityQueue()
     {
-        ConsoleUtilities.PrintTitle("Testing the Custom Priority Queue");
+        ConsoleUtilities.PrintHeaderTitle("Testing the Custom Priority Queue");
 
         var priorityQueue = new PriorityQueue();
             
@@ -130,7 +130,7 @@ public static class QueueTests
 
     private static void TestQueueReverser()
     {
-        ConsoleUtilities.PrintTitle("Testing the Queue Reverser");
+        ConsoleUtilities.PrintHeaderTitle("Testing the Queue Reverser");
 
         var queue = new Queue<int>();
 
@@ -149,7 +149,7 @@ public static class QueueTests
 
     private static void TestQueueWithLinkedList()
     {
-        ConsoleUtilities.PrintTitle("Testing the Queue With Linked List");
+        ConsoleUtilities.PrintHeaderTitle("Testing the Queue With Linked List");
 
         var queue = new QueueWithLinkedList();
 

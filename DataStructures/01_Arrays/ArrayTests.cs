@@ -26,7 +26,7 @@ public static class ArrayTests
 
     private static void TestInsert(Array numbers)
     {
-        ConsoleUtilities.PrintTitle("Testing the Insert method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the Insert method");
 
         numbers.Insert(1);
         numbers.Insert(2);
@@ -36,7 +36,7 @@ public static class ArrayTests
 
     private static void TestIncrease(Array numbers)
     {
-        ConsoleUtilities.PrintTitle("Testing the Increase method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the Increase method");
 
         numbers.Insert(4);
         numbers.Print();
@@ -44,7 +44,7 @@ public static class ArrayTests
 
     private static void TestRemoveAt(Array numbers)
     {
-        ConsoleUtilities.PrintTitle("Testing the RemoveAt method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the RemoveAt method");
 
         numbers.RemoveAt(3);
         numbers.Print();
@@ -65,7 +65,7 @@ public static class ArrayTests
 
     private static void TestIndexOf(Array numbers)
     {
-        ConsoleUtilities.PrintTitle("Testing the IndexOf method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the IndexOf method");
 
         Console.WriteLine($"Index of number 3: {numbers.IndexOf(3)}");
         Console.WriteLine($"Index of number 2: {numbers.IndexOf(2)}");
@@ -75,7 +75,7 @@ public static class ArrayTests
 
     private static void TestMax(Array numbers)
     {
-        ConsoleUtilities.PrintTitle("Testing the Max method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the Max method");
 
         numbers.Insert(10);
         numbers.Insert(8);
@@ -89,7 +89,7 @@ public static class ArrayTests
 
     private static void TestIntersect(Array numbers)
     {
-        ConsoleUtilities.PrintTitle("Testing the Intersect method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the Intersect method");
 
         var intersectTest = new Array(5);
             
@@ -108,7 +108,7 @@ public static class ArrayTests
 
     private static void TestReverse()
     {
-        ConsoleUtilities.PrintTitle("Testing the Reverse method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the Reverse method");
 
         var reverseTest = new Array(5);
 
@@ -125,7 +125,7 @@ public static class ArrayTests
 
     private static void TestInsertAt()
     {
-        ConsoleUtilities.PrintTitle("Testing the InsertAt method");
+        ConsoleUtilities.PrintHeaderTitle("Testing the InsertAt method");
 
         var insertAtTest = new Array(3);
 

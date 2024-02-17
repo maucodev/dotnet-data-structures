@@ -13,11 +13,12 @@ public static class BinaryTreeTests
     public static void Execute()
     {
         TestBinaryTree();
+        TestTreeTraversal();
     }
 
     private static void TestBinaryTree()
     {
-        ConsoleUtilities.PrintTitle("Binary Tree");
+        ConsoleUtilities.PrintHeaderTitle("Binary Tree");
 
         var tree = new Tree();
 
@@ -29,9 +30,28 @@ public static class BinaryTreeTests
         tree.Insert(8);
         tree.Insert(10);
 
-        tree.Print();
-
         Console.WriteLine($"\nIncludes the value {3}? >> {tree.Find(3)}");
         Console.WriteLine($"\nIncludes the value {10}? >> {tree.Find(10)}");
+    }
+
+    private static void TestTreeTraversal()
+    {
+        ConsoleUtilities.PrintHeaderTitle("Tree Traversal");
+
+        var tree = new Tree();
+
+        tree.Insert(7);
+        tree.Insert(4);
+        tree.Insert(9);
+        tree.Insert(1);
+        tree.Insert(6);
+        tree.Insert(8);
+        tree.Insert(10);
+
+        tree.TraversePreOrder();
+
+        tree.TraverseInOrder();
+
+        tree.TraversePostOrder();
     }
 }
