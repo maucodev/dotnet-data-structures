@@ -2,7 +2,10 @@
 
 namespace DataStructures._06_Trees;
 
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Minor Code Smell", "S3897:Classes that provide \"Equals(<T>)\" should implement \"IEquatable<T>\"", Justification = "We are building our method.")]
+#pragma warning disable S4035
 public class Tree
+#pragma warning restore S4035
 {
     private TreeNode? _root;
 
@@ -148,6 +151,16 @@ public class Tree
         return last.Value;
     }
 
+    /// <summary>
+    /// Checks if the current tree is equal to another tree.
+    /// </summary>
+    /// <param name="other">The tree to compare with.</param>
+    /// <returns><c>true</c> if the trees are equal; otherwise, <c>false</c>.</returns>
+    public bool Equals(Tree? other)
+    {
+        return other != null && Equals(_root, other._root);
+    }
+
     private static void TraversePreOrder(TreeNode? root)
     {
         if (root == null)
@@ -210,6 +223,23 @@ public class Tree
         var minRight = Min(root?.RightChild);
 
         return Math.Min(Math.Min(minLeft, minRight), root?.Value ?? int.MaxValue);
+    }
+
+    private static bool Equals(TreeNode? first, TreeNode? second)
+    {
+        if (first == null && second == null)
+        {
+            return true;
+        }
+
+        if (first != null && second != null)
+        {
+            return first.Value == second.Value && 
+                   Equals(first.LeftChild, second.LeftChild) && 
+                   Equals(first.RightChild, second.RightChild);
+        }
+
+        return false;
     }
 
     private bool IsEmpty()

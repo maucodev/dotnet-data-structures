@@ -14,6 +14,7 @@ public static class TreeTests
     {
         TestBinaryTree();
         TestTreeTraversal();
+        TestEquals();
     }
 
     private static void TestBinaryTree()
@@ -59,5 +60,36 @@ public static class TreeTests
         Console.WriteLine($"\nThe min value (binary tree) is: {tree.MinBinaryTreeValue()}");
 
         Console.WriteLine($"\nThe min value (no binary tree) is: {tree.Min()}");
+    }
+
+    private static void TestEquals()
+    {
+        ConsoleUtilities.PrintHeaderTitle("Equals");
+
+        var tree = new Tree();
+
+        tree.Insert(7);
+        tree.Insert(4);
+        tree.Insert(9);
+        tree.Insert(1);
+        tree.Insert(6);
+        tree.Insert(8);
+        tree.Insert(10);
+
+        var copyTree = new Tree();
+
+        copyTree.Insert(7);
+        copyTree.Insert(4);
+        copyTree.Insert(9);
+        copyTree.Insert(1);
+        copyTree.Insert(6);
+        copyTree.Insert(8);
+        copyTree.Insert(10);
+
+        Console.WriteLine($"\nAre equals: {tree.Equals(copyTree)}");
+
+        Console.WriteLine($"\nAre equals: {tree.Equals(new Tree())}");
+
+        Console.WriteLine($"\nAre equals: {tree.Equals(null)}");
     }
 }
