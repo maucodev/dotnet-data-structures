@@ -16,6 +16,7 @@ public static class TreeTests
         TestTreeTraversal();
         TestEquals();
         TestValidatingBinarySearchTree();
+        TestKDistanceFromRoot();
     }
 
     private static void TestBinaryTree()
@@ -113,5 +114,26 @@ public static class TreeTests
         tree.SwapRoot();
 
         Console.WriteLine($"\nIs a valid BST: {tree.IsBinarySearchTree()}");
+    }
+
+    private static void TestKDistanceFromRoot()
+    {
+        ConsoleUtilities.PrintHeaderTitle("K Distance From Root");
+
+        var tree = new Tree();
+
+        tree.Insert(7);
+        tree.Insert(4);
+        tree.Insert(9);
+        tree.Insert(1);
+        tree.Insert(6);
+        tree.Insert(8);
+        tree.Insert(10);
+
+        Console.WriteLine($"\nNodes at 0 distance: {tree.GetNodesAtKDistance(0)}");
+
+        Console.WriteLine($"\nNodes at 1 distance: {tree.GetNodesAtKDistance(1)}");
+
+        Console.WriteLine($"\nNodes at 2 distance: {tree.GetNodesAtKDistance(2)}");
     }
 }

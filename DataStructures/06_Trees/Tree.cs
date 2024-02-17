@@ -1,4 +1,5 @@
-﻿using DataStructures.Shared;
+﻿using System.Text;
+using DataStructures.Shared;
 
 namespace DataStructures._06_Trees;
 
@@ -186,6 +187,21 @@ public class Tree
         _root.RightChild = relay;
     }
 
+    /// <summary>
+    /// Gets the nodes at distance k from the root node.
+    /// </summary>
+    /// <param name="k">The distance from the root node.</param>
+    public string GetNodesAtKDistance(int k)
+    {
+        var result = new StringBuilder("[");
+
+        GetNodesAtKDistance(_root, k, result);
+
+        result.Append(']');
+
+        return result.ToString();
+    }
+
     private static void TraversePreOrder(TreeNode? root)
     {
         if (root == null)
@@ -281,6 +297,24 @@ public class Tree
 
         return IsBinarySearchTree(root.LeftChild, min, root.Value - 1) && 
                IsBinarySearchTree(root.RightChild, root.Value + 1, max);
+    }
+
+    private static void GetNodesAtKDistance(TreeNode? root, int k, StringBuilder stringBuilder)
+    {
+        if (root == null)
+        {
+            return;
+        }
+
+        if (k == 0)
+        {
+            stringBuilder.Append($" {root.Value} ");
+            return;
+        }
+
+        GetNodesAtKDistance(root.LeftChild, k - 1, stringBuilder);
+
+        GetNodesAtKDistance(root.RightChild, k - 1, stringBuilder);
     }
 
     private bool IsEmpty()
