@@ -1,11 +1,11 @@
 ﻿using DataStructures.Shared;
 
-namespace DataStructures._06_BinaryTrees;
+namespace DataStructures._06_Trees;
 
 /// <summary>
 /// Provides methods to test binary trees algorithms.
 /// </summary>
-public static class BinaryTreeTests
+public static class TreeTests
 {
     /// <summary>
     /// Executes the binary tree tests.

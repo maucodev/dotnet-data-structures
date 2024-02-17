@@ -1,6 +1,6 @@
 ﻿using DataStructures.Shared;
 
-namespace DataStructures._06_BinaryTrees;
+namespace DataStructures._06_Trees;
 
 public class Tree
 {
@@ -117,6 +117,11 @@ public class Tree
     /// <returns>The minimum value in the tree.</returns>
     public int MinBinaryTreeValue()
     {
+        if (_root == null)
+        {
+            throw new InvalidOperationException("The tree is empty");
+        }
+
         return Min(_root);
     }
 
