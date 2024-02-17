@@ -185,5 +185,11 @@ public static class TreeTests
         Console.WriteLine($"Are 8 and 10 sibling: {tree.AreSibling(8, 10)}\n");
 
         Console.WriteLine($"The ancestors of 10 are: {tree.GetAncestors(10)}\n");
+
+        Console.WriteLine($"Is a perfect tree: {tree.IsPerfect()}\n");
+
+        tree.Insert(11);
+
+        Console.WriteLine($"Is a perfect tree: {tree.IsPerfect()}\n");
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System.Text;
-using DataStructures.Shared;
 
 namespace DataStructures._06_Trees;
 
@@ -43,6 +42,20 @@ public class BinaryTree : Tree
         result.Append(']');
 
         return result.ToString();
+    }
+
+    /// <summary>
+    /// Checks whether the binary tree is perfect.
+    /// </summary>
+    /// <remarks>
+    /// A perfect tree is a binary tree in which all interior nodes have two children and all leaves have the same depth or same level.
+    /// </remarks>
+    /// <returns><c>true</c> if the tree is perfect; otherwise, <c>false</c>.</returns>
+    public bool IsPerfect()
+    {
+        const double tolerance = 0.01;
+
+        return Math.Abs(Size(Root) - (Math.Pow(2, Height() + 1) - 1)) < tolerance;
     }
 
     /// <summary>
