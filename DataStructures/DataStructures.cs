@@ -4,6 +4,7 @@ using DataStructures._03_Stacks;
 using DataStructures._04_Queues;
 using DataStructures._05_HashTables;
 using DataStructures._06_Trees;
+using DataStructures._07_AvlTrees;
 using DataStructures.Shared;
 
 namespace DataStructures;
@@ -44,10 +45,16 @@ public static class DataStructures
                 TreeTests.Execute();
                 break;
 
+            case '7':
+                AvlTreeTests.Execute();
+                break;
+
             default:
                 Console.WriteLine("Option not valid!");
                 break;
         }
+
+        Console.WriteLine("\nPress a key for closing...");
 
         Console.ReadLine();
     }

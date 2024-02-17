@@ -14,8 +14,8 @@ The solution is divided into some main projects, each representing a fundamental
 3. **Stacks**: This project contains implementation and tests for stack data structure.
 4. **Queues**: This project contains implementation and tests for queue data structure.
 5. **Hash Tables**: This project contains implementation and tests for hash table data structure.
-
 6. **Trees**: This project contains implementation and tests for trees data structure.
+7. **AVL Trees**: This project contains implementation and tests for AVL trees data structure.
 
 ## Getting Started
 To get started with this solution, clone the repository and open the solution file in Visual Studio. Each project contains a series of tests that you can run to verify the implementation of each data structure.
