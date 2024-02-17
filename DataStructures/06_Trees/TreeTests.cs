@@ -15,6 +15,7 @@ public static class TreeTests
         TestBinaryTree();
         TestTreeTraversal();
         TestEquals();
+        TestValidatingBinarySearchTree();
     }
 
     private static void TestBinaryTree()
@@ -91,5 +92,26 @@ public static class TreeTests
         Console.WriteLine($"\nAre equals: {tree.Equals(new Tree())}");
 
         Console.WriteLine($"\nAre equals: {tree.Equals(null)}");
+    }
+
+    private static void TestValidatingBinarySearchTree()
+    {
+        ConsoleUtilities.PrintHeaderTitle("Validating Binary Search Tree");
+
+        var tree = new Tree();
+
+        tree.Insert(7);
+        tree.Insert(4);
+        tree.Insert(9);
+        tree.Insert(1);
+        tree.Insert(6);
+        tree.Insert(8);
+        tree.Insert(10);
+
+        Console.WriteLine($"\nIs a valid BST: {tree.IsBinarySearchTree()}");
+
+        tree.SwapRoot();
+
+        Console.WriteLine($"\nIs a valid BST: {tree.IsBinarySearchTree()}");
     }
 }

@@ -161,6 +161,31 @@ public class Tree
         return other != null && Equals(_root, other._root);
     }
 
+    /// <summary>
+    /// Checks whether the tree is a binary search tree (BST).
+    /// </summary>
+    /// <returns><c>true</c> if the tree is a binary search tree; otherwise, <c>false</c>.</returns>
+    public bool IsBinarySearchTree()
+    {
+        return IsBinarySearchTree(_root, int.MinValue, int.MaxValue);
+    }
+
+    /// <summary>
+    /// Swaps the root node of the tree with its left child.
+    /// </summary>
+    public void SwapRoot()
+    {
+        var relay = _root?.LeftChild;
+
+        if (_root == null)
+        {
+            return;
+        }
+
+        _root.LeftChild = _root.RightChild;
+        _root.RightChild = relay;
+    }
+
     private static void TraversePreOrder(TreeNode? root)
     {
         if (root == null)
@@ -240,6 +265,22 @@ public class Tree
         }
 
         return false;
+    }
+
+    private static bool IsBinarySearchTree(TreeNode? root, int min, int max)
+    {
+        if (root == null)
+        {
+            return true;
+        }
+
+        if (root.Value < min || root.Value > max)
+        {
+            return false;
+        }
+
+        return IsBinarySearchTree(root.LeftChild, min, root.Value - 1) && 
+               IsBinarySearchTree(root.RightChild, root.Value + 1, max);
     }
 
     private bool IsEmpty()
