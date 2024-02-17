@@ -77,7 +77,7 @@ public class BinaryTree : Tree
         return TotalLeaves(Root);
     }
 
-    private static bool GetAncestors(TreeNode? root, int value, StringBuilder stringBuilder)
+    private static bool GetAncestors(Node? root, int value, StringBuilder stringBuilder)
     {
         if (root == null)
         {
@@ -100,7 +100,7 @@ public class BinaryTree : Tree
         return true;
     }
 
-    private static bool AreSibling(TreeNode? root, int first, int second)
+    private static bool AreSibling(Node? root, int first, int second)
     {
         if (root == null)
         {
@@ -120,7 +120,7 @@ public class BinaryTree : Tree
                AreSibling(root.RightChild, first, second);
     }
 
-    private static bool Contains(TreeNode? root, int value)
+    private static bool Contains(Node? root, int value)
     {
         if (root == null)
         {
@@ -135,7 +135,7 @@ public class BinaryTree : Tree
         return Contains(root.LeftChild, value) || Contains(root.RightChild, value);
     }
 
-    private static int Max(TreeNode? root)
+    private static int Max(Node? root)
     {
         if (root == null)
         {
@@ -147,7 +147,7 @@ public class BinaryTree : Tree
             : Max(root.RightChild);
     }
 
-    private static int Size(TreeNode? root)
+    private static int Size(Node? root)
     {
         if (root == null)
         {
@@ -162,7 +162,7 @@ public class BinaryTree : Tree
         return 1 + Size(root.LeftChild) + Size(root.RightChild);
     }
 
-    private static int TotalLeaves(TreeNode? root)
+    private static int TotalLeaves(Node? root)
     {
         if (root == null)
         {

@@ -11,7 +11,7 @@ namespace DataStructures._06_Trees;
 public class Tree
 #pragma warning restore S4035
 {
-    internal TreeNode? Root;
+    internal Node? Root;
 
     /// <summary>
     /// Inserts a value to the tree.
@@ -19,7 +19,7 @@ public class Tree
     /// <param name="value">The value to insert.</param>
     public void Insert(int value)
     {
-        var node = new TreeNode(value);
+        var node = new Node(value);
 
         if (IsEmpty())
         {
@@ -216,7 +216,7 @@ public class Tree
         }
     }
 
-    private static void TraversePreOrder(TreeNode? root)
+    private static void TraversePreOrder(Node? root)
     {
         if (root == null)
         {
@@ -228,7 +228,7 @@ public class Tree
         TraversePreOrder(root.RightChild);
     }
 
-    private static void TraverseInOrder(TreeNode? root)
+    private static void TraverseInOrder(Node? root)
     {
         if (root == null)
         {
@@ -240,7 +240,7 @@ public class Tree
         TraversePreOrder(root.RightChild);
     }
 
-    private static void TraversePostOrder(TreeNode? root)
+    private static void TraversePostOrder(Node? root)
     {
         if (root == null)
         {
@@ -252,7 +252,7 @@ public class Tree
         Console.WriteLine(root.Value);
     }
 
-    private static int Height(TreeNode? root)
+    private static int Height(Node? root)
     {
         if (root == null)
         {
@@ -267,7 +267,7 @@ public class Tree
         return 1 + Math.Max(Height(root.LeftChild), Height(root.RightChild));
     }
 
-    private static int Min(TreeNode? root)
+    private static int Min(Node? root)
     {
         if (IsLeaf(root))
         {
@@ -280,7 +280,7 @@ public class Tree
         return Math.Min(Math.Min(minLeft, minRight), root?.Value ?? int.MaxValue);
     }
 
-    private static bool Equals(TreeNode? first, TreeNode? second)
+    private static bool Equals(Node? first, Node? second)
     {
         if (first == null && second == null)
         {
@@ -297,7 +297,7 @@ public class Tree
         return false;
     }
 
-    private static bool IsBinarySearchTree(TreeNode? root, int min, int max)
+    private static bool IsBinarySearchTree(Node? root, int min, int max)
     {
         if (root == null)
         {
@@ -313,7 +313,7 @@ public class Tree
                IsBinarySearchTree(root.RightChild, root.Value + 1, max);
     }
 
-    private static void GetNodesAtKDistance(TreeNode? root, int k, StringBuilder stringBuilder)
+    private static void GetNodesAtKDistance(Node? root, int k, StringBuilder stringBuilder)
     {
         if (root == null)
         {
@@ -336,7 +336,7 @@ public class Tree
         return Root == null;
     }
 
-    internal static bool IsLeaf(TreeNode? node)
+    internal static bool IsLeaf(Node? node)
     {
         return node?.LeftChild == null && node?.RightChild == null;
     }

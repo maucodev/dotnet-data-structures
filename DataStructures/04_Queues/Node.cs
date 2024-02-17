@@ -1,4 +1,4 @@
-﻿namespace DataStructures.Shared;
+﻿namespace DataStructures._04_Queues;
 
 /// <summary>
 /// Represents a node in a linked list.

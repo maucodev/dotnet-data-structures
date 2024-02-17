@@ -1,9 +1,9 @@
-﻿namespace DataStructures.Shared;
+﻿namespace DataStructures._06_Trees;
 
 /// <summary>
 /// Represents a node in a tree.
 /// </summary>
-public class TreeNode(int value)
+public class Node(int value)
 {
     /// <summary>
     /// Gets or sets the value stored in the node.
@@ -13,10 +13,10 @@ public class TreeNode(int value)
     /// <summary>
     /// Gets or sets the left child of the node.
     /// </summary>
-    public TreeNode? LeftChild { get; set; }
+    public Node? LeftChild { get; set; }
 
     /// <summary>
     /// Gets or sets the right child of the node.
     /// </summary>
-    public TreeNode? RightChild { get; set; }
+    public Node? RightChild { get; set; }
 }
