@@ -11,9 +11,28 @@ public class Heap(int capacity = 10)
     private int _size;
     private readonly int[] _items = new int[capacity];
 
+    private static int GetIndexLeftChild(int index)
+    {
+        return index * 2 + 1;
+    }
+
+    private static int GetIndexRightChild(int index)
+    {
+        return index * 2 + 2;
+    }
+
     private static int GetIndexParent(int index)
     {
         return (index - 1) / 2;
+    }
+
+    /// <summary>
+    /// Checks whether the heap is empty.
+    /// </summary>
+    /// <returns><c>true</c> if the heap is empty; otherwise, <c>false</c>.</returns>
+    public bool IsEmpty()
+    {
+        return _size == 0;
     }
 
     /// <summary>
@@ -41,6 +60,28 @@ public class Heap(int capacity = 10)
         BubbleUp();
     }
 
+    /// <summary>
+    /// Removes the node with the largest value from the heap.
+    /// </summary>
+    public void Remove()
+    {
+        if (IsEmpty())
+        {
+            throw new InvalidOperationException("The heap is empty");
+        }
+
+        _items[0] = _items[--_size];
+
+        var index = 0;
+
+        while (index <= _size && !IsValidParent(index))
+        {
+            var largerChildIndex = GetLargerChildIndex(index);
+            Swap(index, largerChildIndex);
+            index = largerChildIndex;
+        }
+    }
+
     /// <inheritdoc/>>
     public override string ToString()
     {
@@ -66,6 +107,29 @@ public class Heap(int capacity = 10)
 
             index = GetIndexParent(index);
         }
+    }
+
+    private int GetLargerChildIndex(int index)
+    {
+        return GetLeftChild(index) > GetRightChild(index)
+            ? GetIndexLeftChild(index)
+            : GetIndexRightChild(index);
+    }
+
+    private int GetLeftChild(int index)
+    {
+        return _items[GetIndexLeftChild(index)];
+    }
+
+    private int GetRightChild(int index)
+    {
+        return _items[GetIndexRightChild(index)];
+    }
+
+    private bool IsValidParent(int index)
+    {
+        return _items[index] >= GetLeftChild(index) &&
+               _items[index] >= GetRightChild(index);
     }
 
     private void Swap(int first, int second)
