@@ -1,4 +1,6 @@
-﻿namespace DataStructures._08_Heaps;
+﻿using System.Text;
+
+namespace DataStructures._08_Heaps;
 
 /// <summary>
 /// Represents a heap data structure with an optional initial capacity.
@@ -37,6 +39,21 @@ public class Heap(int capacity = 10)
         _items[_size++] = value;
 
         BubbleUp();
+    }
+
+    /// <inheritdoc/>>
+    public override string ToString()
+    {
+        var result = new StringBuilder("[");
+
+        for (var i = 0; i < _size; i++)
+        {
+            result.Append($" {_items[i]} ");
+        }
+
+        result.Append(']');
+
+        return result.ToString();
     }
 
     private void BubbleUp()

@@ -26,5 +26,7 @@ public static class HeapTests
         heap.Insert(17);
         heap.Insert(4);
         heap.Insert(22);
+
+        Console.WriteLine($"Heap: {heap}");
     }
 }
