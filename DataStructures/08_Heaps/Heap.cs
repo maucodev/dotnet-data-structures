@@ -61,25 +61,23 @@ public class Heap(int capacity = 10)
     }
 
     /// <summary>
-    /// Removes the node with the largest value from the heap.
+    /// Removes and returns the node with the largest value from the heap.
     /// </summary>
-    public void Remove()
+    /// <returns>The value of the removed node, which is the largest value in the heap.</returns>
+    public int Remove()
     {
         if (IsEmpty())
         {
             throw new InvalidOperationException("The heap is empty");
         }
 
+        var root = _items[0];
+
         _items[0] = _items[--_size];
 
-        var index = 0;
+        BubbleDown();
 
-        while (index <= _size && !IsValidParent(index))
-        {
-            var largerChildIndex = GetLargerChildIndex(index);
-            Swap(index, largerChildIndex);
-            index = largerChildIndex;
-        }
+        return root;
     }
 
     /// <inheritdoc/>>
@@ -97,6 +95,18 @@ public class Heap(int capacity = 10)
         return result.ToString();
     }
 
+    private void BubbleDown()
+    {
+        var index = 0;
+
+        while (index <= _size && !IsValidParent(index))
+        {
+            var largerChildIndex = GetLargerChildIndex(index);
+            Swap(index, largerChildIndex);
+            index = largerChildIndex;
+        }
+    }
+
     private void BubbleUp()
     {
         var index = _size - 1;
@@ -109,8 +119,28 @@ public class Heap(int capacity = 10)
         }
     }
 
+    private bool HasLeftChild(int index)
+    {
+        return GetIndexLeftChild(index) <= _size;
+    }
+
+    private bool HasRightChild(int index)
+    {
+        return GetIndexRightChild(index) <= _size;
+    }
+
     private int GetLargerChildIndex(int index)
     {
+        if (!HasLeftChild(index))
+        {
+            return index;
+        }
+
+        if (!HasRightChild(index))
+        {
+            return GetIndexLeftChild(index);
+        }
+
         return GetLeftChild(index) > GetRightChild(index)
             ? GetIndexLeftChild(index)
             : GetIndexRightChild(index);
@@ -128,8 +158,19 @@ public class Heap(int capacity = 10)
 
     private bool IsValidParent(int index)
     {
-        return _items[index] >= GetLeftChild(index) &&
-               _items[index] >= GetRightChild(index);
+        if (!HasLeftChild(index))
+        {
+            return true;
+        }
+
+        var isValid = _items[index] >= GetLeftChild(index);
+
+        if (HasRightChild(index))
+        {
+            isValid &= _items[index] >= GetRightChild(index);
+        }
+
+        return isValid;
     }
 
     private void Swap(int first, int second)

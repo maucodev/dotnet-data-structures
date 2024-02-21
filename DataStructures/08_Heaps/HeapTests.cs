@@ -27,9 +27,9 @@ public static class HeapTests
         heap.Insert(4);
         heap.Insert(22);
 
-        Console.WriteLine($"Heap: {heap}");
+        Console.WriteLine($"Heap: {heap}\n");
 
-        heap.Remove();
+        Console.WriteLine($"Removing the item: {heap.Remove()}\n");
 
         Console.WriteLine($"Heap: {heap}");
     }
