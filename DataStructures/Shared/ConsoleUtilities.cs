@@ -17,4 +17,16 @@ public static class ConsoleUtilities
         Console.WriteLine(new string('-', 40));
         Console.WriteLine();
     }
+
+    /// <summary>
+    /// Prints the footer in the console.
+    /// </summary>
+    public static void PrintFooter()
+    {
+        Console.WriteLine();
+        Console.WriteLine(new string('-', 40));
+        Console.WriteLine($"   Finished Test   ");
+        Console.WriteLine(new string('-', 40));
+        Console.WriteLine();
+    }
 }
