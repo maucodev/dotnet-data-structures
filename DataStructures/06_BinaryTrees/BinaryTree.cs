@@ -63,4 +63,61 @@ public class BinaryTree
 
         return false;
     }
+
+    public void TraversePreOrder()
+    {
+        TraversePreOrder(_root);
+    }
+
+    public void TraverseInOrder()
+    {
+        TraverseInOrder(_root);
+    }
+
+    public void TraversePostOrder()
+    {
+        TraversePostOrder(_root);
+    }
+
+    private static void TraversePreOrder(BinaryTreeNode? root)
+    {
+        if (root is null)
+        {
+            return;
+        }
+
+        Console.WriteLine(root);
+
+        TraversePreOrder(root.LeftChild);
+
+        TraversePreOrder(root.RightChild);
+    }
+
+    private static void TraverseInOrder(BinaryTreeNode? root)
+    {
+        if (root is null)
+        {
+            return;
+        }
+
+        TraversePreOrder(root.LeftChild);
+
+        Console.WriteLine(root);
+
+        TraversePreOrder(root.RightChild);
+    }
+
+    private static void TraversePostOrder(BinaryTreeNode? root)
+    {
+        if (root is null)
+        {
+            return;
+        }
+
+        TraversePreOrder(root.LeftChild);
+
+        TraversePreOrder(root.RightChild);
+
+        Console.WriteLine(root);
+    }
 }
