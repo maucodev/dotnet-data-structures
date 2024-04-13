@@ -12,6 +12,7 @@ public static class BinaryTreeTests
         HeightTest();
         MinTest();
         MinBinarySearchTest();
+        EqualsTest();
     }
 
     private static void InsertTest()
@@ -144,6 +145,38 @@ public static class BinaryTreeTests
         Console.WriteLine($"The min value is {binaryTree.MinInBinarySearchTree()}");
 
         Console.WriteLine($"The max value is {binaryTree.MaxInBinarySearchTree()}");
+
+        ConsoleUtilities.PrintFooter();
+    }
+
+    private static void EqualsTest()
+    {
+        ConsoleUtilities.PrintHeaderTitle("Testing: Equals");
+
+        var binaryTreeOne = new BinaryTree();
+        var binaryTreeTwo = new BinaryTree();
+
+        binaryTreeOne.Insert(10);
+        binaryTreeOne.Insert(5);
+        binaryTreeOne.Insert(15);
+        binaryTreeOne.Insert(6);
+        binaryTreeOne.Insert(1);
+        binaryTreeOne.Insert(8);
+        binaryTreeOne.Insert(12);
+        binaryTreeOne.Insert(18);
+        binaryTreeOne.Insert(17);
+
+        binaryTreeTwo.Insert(10);
+        binaryTreeTwo.Insert(5);
+        binaryTreeTwo.Insert(15);
+        binaryTreeTwo.Insert(6);
+        binaryTreeTwo.Insert(1);
+        binaryTreeTwo.Insert(8);
+        binaryTreeTwo.Insert(12);
+        binaryTreeTwo.Insert(18);
+        binaryTreeTwo.Insert(17);
+
+        Console.WriteLine($"Are equals? {binaryTreeOne.Equals(binaryTreeTwo)}");
 
         ConsoleUtilities.PrintFooter();
     }

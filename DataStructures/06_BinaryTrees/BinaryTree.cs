@@ -1,4 +1,7 @@
-﻿namespace DataStructures._06_BinaryTrees;
+﻿#pragma warning disable S1206
+#pragma warning disable CS0659
+
+namespace DataStructures._06_BinaryTrees;
 
 public class BinaryTree
 {
@@ -97,6 +100,11 @@ public class BinaryTree
     public int MaxInBinarySearchTree()
     {
         return MaxInBinarySearchTree(_root);
+    }
+
+    public override bool Equals(object? obj)
+    {
+        return AreEquals(_root, (obj as BinaryTree)?._root);
     }
 
     private static void TraversePreOrder(BinaryTreeNode? root)
@@ -211,5 +219,22 @@ public class BinaryTree
     {
         return root?.LeftChild is null &&
                root?.RightChild is null;
+    }
+
+    private static bool AreEquals(BinaryTreeNode? first, BinaryTreeNode? second)
+    {
+        if (first is null && second is null)
+        {
+            return true;
+        }
+
+        if (first is not null && second is not null)
+        {
+            return first.Value == second.Value &&
+                   AreEquals(first.LeftChild, second.LeftChild) &&
+                   AreEquals(first.RightChild, second.RightChild);
+        }
+
+        return false;
     }
 }
