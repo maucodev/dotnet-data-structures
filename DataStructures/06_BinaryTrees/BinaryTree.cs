@@ -115,6 +115,11 @@ public class BinaryTree
         }
     }
 
+    public void PrintNodesAtDistance(int distance)
+    {
+        PrintNodesAtDistance(_root, distance);
+    }
+
     public override bool Equals(object? obj)
     {
         return AreEquals(_root, (obj as BinaryTree)?._root);
@@ -234,6 +239,39 @@ public class BinaryTree
                root?.RightChild is null;
     }
 
+    private static bool IsBinarySearchTree(BinaryTreeNode? root, int minValue, int maxValue)
+    {
+        if (root is null)
+        {
+            return true;
+        }
+
+        if (root.Value < minValue || root.Value > maxValue)
+        {
+            return false;
+        }
+
+        return IsBinarySearchTree(root.LeftChild, minValue, root.Value - 1) &&
+               IsBinarySearchTree(root.RightChild, root.Value + 1, maxValue);
+    }
+
+    private static void PrintNodesAtDistance(BinaryTreeNode? root, int distance)
+    {
+        if (root is null)
+        {
+            return;
+        }
+
+        if (distance == 0)
+        {
+            Console.WriteLine(root.Value);
+            return;
+        }
+
+        PrintNodesAtDistance(root.LeftChild, distance - 1);
+        PrintNodesAtDistance(root.RightChild, distance - 1);
+    }
+
     private static bool AreEquals(BinaryTreeNode? first, BinaryTreeNode? second)
     {
         if (first is null && second is null)
@@ -251,19 +289,4 @@ public class BinaryTree
         return false;
     }
 
-    private static bool IsBinarySearchTree(BinaryTreeNode? root, int minValue, int maxValue)
-    {
-        if (root is null)
-        {
-            return true;
-        }
-
-        if (root.Value < minValue || root.Value > maxValue)
-        {
-            return false;
-        }
-
-        return IsBinarySearchTree(root.LeftChild, minValue, root.Value - 1) &&
-               IsBinarySearchTree(root.RightChild, root.Value + 1, maxValue);
-    }
 }

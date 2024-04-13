@@ -14,6 +14,7 @@ public static class BinaryTreeTests
         MinBinarySearchTreeTest();
         EqualsTest();
         IsBinarySearchTreeTest();
+        PrintNodesAtDistanceTest();
     }
 
     private static void InsertTest()
@@ -205,6 +206,37 @@ public static class BinaryTreeTests
         binaryTree.SwapRoot();
 
         Console.WriteLine($"Is binary search tree? {binaryTree.IsBinarySearchTree()}");
+
+        ConsoleUtilities.PrintFooter();
+    }
+
+    private static void PrintNodesAtDistanceTest()
+    {
+        ConsoleUtilities.PrintHeaderTitle("Testing: Print Nodes At Distance");
+
+        var binaryTree = new BinaryTree();
+
+        binaryTree.Insert(10);
+        binaryTree.Insert(5);
+        binaryTree.Insert(15);
+        binaryTree.Insert(6);
+        binaryTree.Insert(1);
+        binaryTree.Insert(8);
+        binaryTree.Insert(12);
+        binaryTree.Insert(18);
+        binaryTree.Insert(17);
+
+        Console.WriteLine("Nodes at distance K=0");
+        binaryTree.PrintNodesAtDistance(0);
+
+        Console.WriteLine("Nodes at distance K=1");
+        binaryTree.PrintNodesAtDistance(1);
+
+        Console.WriteLine("Nodes at distance K=3");
+        binaryTree.PrintNodesAtDistance(3);
+
+        Console.WriteLine("Nodes at distance K=5");
+        binaryTree.PrintNodesAtDistance(5);
 
         ConsoleUtilities.PrintFooter();
     }
