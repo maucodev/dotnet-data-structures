@@ -79,6 +79,11 @@ public class BinaryTree
         TraversePostOrder(_root);
     }
 
+    public int Height()
+    {
+        return Height(_root);
+    }
+
     private static void TraversePreOrder(BinaryTreeNode? root)
     {
         if (root is null)
@@ -119,5 +124,21 @@ public class BinaryTree
         TraversePreOrder(root.RightChild);
 
         Console.WriteLine(root);
+    }
+
+    private static int Height(BinaryTreeNode? root)
+    {
+        if (root is null)
+        {
+            return -1;
+        }
+
+        if (root.LeftChild is null &&
+            root.RightChild is null)
+        {
+            return 0;
+        }
+
+        return 1 + Math.Max(Height(root.LeftChild), Height(root.RightChild));
     }
 }
