@@ -40,4 +40,27 @@ public class BinaryTree
             }
         }
     }
+
+    public bool Find(int value)
+    {
+        var current = _root;
+
+        while (current is not null)
+        {
+            if (value < current.Value)
+            {
+                current = current.LeftChild;
+            }
+            else if (value > current.Value)
+            {
+                current = current.RightChild;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
