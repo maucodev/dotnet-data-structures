@@ -11,8 +11,9 @@ public static class BinaryTreeTests
         TraverseBinaryTreeTest();
         HeightTest();
         MinTest();
-        MinBinarySearchTest();
+        MinBinarySearchTreeTest();
         EqualsTest();
+        IsBinarySearchTreeTest();
     }
 
     private static void InsertTest()
@@ -126,25 +127,27 @@ public static class BinaryTreeTests
         ConsoleUtilities.PrintFooter();
     }
 
-    private static void MinBinarySearchTest()
+    private static void MinBinarySearchTreeTest()
     {
         ConsoleUtilities.PrintHeaderTitle("Testing: Min/Max Binary Search Tree");
 
-        var binaryTree = new BinaryTree();
+        var binarySearchTree = new BinaryTree();
 
-        binaryTree.Insert(10);
-        binaryTree.Insert(5);
-        binaryTree.Insert(15);
-        binaryTree.Insert(6);
-        binaryTree.Insert(1);
-        binaryTree.Insert(8);
-        binaryTree.Insert(12);
-        binaryTree.Insert(18);
-        binaryTree.Insert(17);
+        binarySearchTree.Insert(10);
+        binarySearchTree.Insert(5);
+        binarySearchTree.Insert(15);
+        binarySearchTree.Insert(6);
+        binarySearchTree.Insert(1);
+        binarySearchTree.Insert(8);
+        binarySearchTree.Insert(12);
+        binarySearchTree.Insert(18);
+        binarySearchTree.Insert(17);
 
-        Console.WriteLine($"The min value is {binaryTree.MinInBinarySearchTree()}");
+        binarySearchTree.SwapRoot();
 
-        Console.WriteLine($"The max value is {binaryTree.MaxInBinarySearchTree()}");
+        Console.WriteLine($"The min value is {binarySearchTree.MinInBinarySearchTree()}");
+
+        Console.WriteLine($"The max value is {binarySearchTree.MaxInBinarySearchTree()}");
 
         ConsoleUtilities.PrintFooter();
     }
@@ -177,6 +180,31 @@ public static class BinaryTreeTests
         binaryTreeTwo.Insert(17);
 
         Console.WriteLine($"Are equals? {binaryTreeOne.Equals(binaryTreeTwo)}");
+
+        ConsoleUtilities.PrintFooter();
+    }
+
+    private static void IsBinarySearchTreeTest()
+    {
+        ConsoleUtilities.PrintHeaderTitle("Testing: Is Binary Search Tree");
+
+        var binaryTree = new BinaryTree();
+
+        binaryTree.Insert(10);
+        binaryTree.Insert(5);
+        binaryTree.Insert(15);
+        binaryTree.Insert(6);
+        binaryTree.Insert(1);
+        binaryTree.Insert(8);
+        binaryTree.Insert(12);
+        binaryTree.Insert(18);
+        binaryTree.Insert(17);
+
+        Console.WriteLine($"Is binary search tree? {binaryTree.IsBinarySearchTree()}");
+
+        binaryTree.SwapRoot();
+
+        Console.WriteLine($"Is binary search tree? {binaryTree.IsBinarySearchTree()}");
 
         ConsoleUtilities.PrintFooter();
     }

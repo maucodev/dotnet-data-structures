@@ -102,6 +102,19 @@ public class BinaryTree
         return MaxInBinarySearchTree(_root);
     }
 
+    public bool IsBinarySearchTree()
+    {
+        return IsBinarySearchTree(_root, int.MinValue, int.MaxValue);
+    }
+
+    public void SwapRoot()
+    {
+        if (_root is not null)
+        {
+            (_root.RightChild, _root.LeftChild) = (_root.LeftChild, _root.RightChild);
+        }
+    }
+
     public override bool Equals(object? obj)
     {
         return AreEquals(_root, (obj as BinaryTree)?._root);
@@ -236,5 +249,21 @@ public class BinaryTree
         }
 
         return false;
+    }
+
+    private static bool IsBinarySearchTree(BinaryTreeNode? root, int minValue, int maxValue)
+    {
+        if (root is null)
+        {
+            return true;
+        }
+
+        if (root.Value < minValue || root.Value > maxValue)
+        {
+            return false;
+        }
+
+        return IsBinarySearchTree(root.LeftChild, minValue, root.Value - 1) &&
+               IsBinarySearchTree(root.RightChild, root.Value + 1, maxValue);
     }
 }
