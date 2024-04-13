@@ -3,9 +3,6 @@ using DataStructures._02_LinkedLists;
 using DataStructures._03_Stacks;
 using DataStructures._04_Queues;
 using DataStructures._05_HashTables;
-using DataStructures._06_Trees;
-using DataStructures._07_AvlTrees;
-using DataStructures._08_Heaps;
 using DataStructures.Shared;
 
 namespace DataStructures;
@@ -43,15 +40,12 @@ public static class DataStructures
                 break;
 
             case '6':
-                TreeTests.Execute();
                 break;
 
             case '7':
-                AvlTreeTests.Execute();
                 break;
 
             case '8':
-                HeapTests.ExecuteTests();
                 break;
 
             default:
