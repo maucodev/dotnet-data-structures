@@ -10,6 +10,8 @@ public static class BinaryTreeTests
         FindTest();
         TraverseBinaryTreeTest();
         HeightTest();
+        MinTest();
+        MinBinarySearchTest();
     }
 
     private static void InsertTest()
@@ -98,6 +100,50 @@ public static class BinaryTreeTests
         binaryTree.Insert(17);
 
         Console.WriteLine($"The binary tree height is {binaryTree.Height()}");
+
+        ConsoleUtilities.PrintFooter();
+    }
+
+    private static void MinTest()
+    {
+        ConsoleUtilities.PrintHeaderTitle("Testing: Min");
+
+        var binaryTree = new BinaryTree();
+
+        binaryTree.Insert(10);
+        binaryTree.Insert(5);
+        binaryTree.Insert(15);
+        binaryTree.Insert(6);
+        binaryTree.Insert(1);
+        binaryTree.Insert(8);
+        binaryTree.Insert(12);
+        binaryTree.Insert(18);
+        binaryTree.Insert(17);
+
+        Console.WriteLine($"The min value is {binaryTree.Min()}");
+
+        ConsoleUtilities.PrintFooter();
+    }
+
+    private static void MinBinarySearchTest()
+    {
+        ConsoleUtilities.PrintHeaderTitle("Testing: Min/Max Binary Search Tree");
+
+        var binaryTree = new BinaryTree();
+
+        binaryTree.Insert(10);
+        binaryTree.Insert(5);
+        binaryTree.Insert(15);
+        binaryTree.Insert(6);
+        binaryTree.Insert(1);
+        binaryTree.Insert(8);
+        binaryTree.Insert(12);
+        binaryTree.Insert(18);
+        binaryTree.Insert(17);
+
+        Console.WriteLine($"The min value is {binaryTree.MinInBinarySearchTree()}");
+
+        Console.WriteLine($"The max value is {binaryTree.MaxInBinarySearchTree()}");
 
         ConsoleUtilities.PrintFooter();
     }

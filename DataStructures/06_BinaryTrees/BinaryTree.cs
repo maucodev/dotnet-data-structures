@@ -84,6 +84,21 @@ public class BinaryTree
         return Height(_root);
     }
 
+    public int Min()
+    {
+        return Min(_root);
+    }
+
+    public int MinInBinarySearchTree()
+    {
+        return MinInBinarySearchTree(_root);
+    }
+
+    public int MaxInBinarySearchTree()
+    {
+        return MaxInBinarySearchTree(_root);
+    }
+
     private static void TraversePreOrder(BinaryTreeNode? root)
     {
         if (root is null)
@@ -133,12 +148,68 @@ public class BinaryTree
             return -1;
         }
 
-        if (root.LeftChild is null &&
-            root.RightChild is null)
+        if (IsLeaf(root))
         {
             return 0;
         }
 
         return 1 + Math.Max(Height(root.LeftChild), Height(root.RightChild));
+    }
+
+    private static int Min(BinaryTreeNode? root)
+    {
+        if (root is null)
+        {
+            return int.MaxValue;
+        }
+
+        if (IsLeaf(root))
+        {
+            return root.Value;
+        }
+
+        var minLeft = Min(root.LeftChild);
+        var minRight = Min(root.RightChild);
+        var minChildren = Math.Min(minLeft, minRight);
+
+        return Math.Min(minChildren, root.Value);
+    }
+
+    private static int MinInBinarySearchTree(BinaryTreeNode? root)
+    {
+        ArgumentNullException.ThrowIfNull(root);
+
+        var current = root;
+        var last = current;
+
+        while (current is not null)
+        {
+            last = current;
+            current = current.LeftChild;
+        }
+
+        return last.Value;
+    }
+
+    private static int MaxInBinarySearchTree(BinaryTreeNode? root)
+    {
+        ArgumentNullException.ThrowIfNull(root);
+
+        var current = root;
+        var last = current;
+
+        while (current is not null)
+        {
+            last = current;
+            current = current.RightChild;
+        }
+
+        return last.Value;
+    }
+
+    private static bool IsLeaf(BinaryTreeNode? root)
+    {
+        return root?.LeftChild is null &&
+               root?.RightChild is null;
     }
 }
