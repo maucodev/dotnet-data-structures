@@ -15,6 +15,7 @@ public static class BinaryTreeTests
         EqualsTest();
         IsBinarySearchTreeTest();
         PrintNodesAtDistanceTest();
+        TraverseLevelOrderTest();
     }
 
     private static void InsertTest()
@@ -227,16 +228,37 @@ public static class BinaryTreeTests
         binaryTree.Insert(17);
 
         Console.WriteLine("Nodes at distance K=0");
-        binaryTree.PrintNodesAtDistance(0);
+        binaryTree.PrintNodesAtDistance(0, []);
 
         Console.WriteLine("Nodes at distance K=1");
-        binaryTree.PrintNodesAtDistance(1);
+        binaryTree.PrintNodesAtDistance(1, []);
 
         Console.WriteLine("Nodes at distance K=3");
-        binaryTree.PrintNodesAtDistance(3);
+        binaryTree.PrintNodesAtDistance(3, []);
 
         Console.WriteLine("Nodes at distance K=5");
-        binaryTree.PrintNodesAtDistance(5);
+        binaryTree.PrintNodesAtDistance(5, []);
+
+        ConsoleUtilities.PrintFooter();
+    }
+
+    private static void TraverseLevelOrderTest()
+    {
+        ConsoleUtilities.PrintHeaderTitle("Testing: Traverse Level Order");
+
+        var binaryTree = new BinaryTree();
+
+        binaryTree.Insert(10);
+        binaryTree.Insert(5);
+        binaryTree.Insert(15);
+        binaryTree.Insert(6);
+        binaryTree.Insert(1);
+        binaryTree.Insert(8);
+        binaryTree.Insert(12);
+        binaryTree.Insert(18);
+        binaryTree.Insert(17);
+
+        binaryTree.TraverseLevelOrder();
 
         ConsoleUtilities.PrintFooter();
     }

@@ -82,6 +82,16 @@ public class BinaryTree
         TraversePostOrder(_root);
     }
 
+    public void TraverseLevelOrder()
+    {
+        for (var i = 0; i <= Height() ; i++)
+        {
+            Console.WriteLine($"Items at level {i}");
+
+            PrintNodesAtDistance(i, []);
+        }
+    }
+
     public int Height()
     {
         return Height(_root);
@@ -115,9 +125,19 @@ public class BinaryTree
         }
     }
 
-    public void PrintNodesAtDistance(int distance)
+    public void PrintNodesAtDistance(int distance, List<int> items)
     {
-        PrintNodesAtDistance(_root, distance);
+        if (_root is null)
+        {
+            return;
+        }
+
+        PrintNodesAtDistance(_root, distance, items);
+
+        foreach (var item in items)
+        {
+            Console.WriteLine(item);
+        }
     }
 
     public override bool Equals(object? obj)
@@ -255,7 +275,7 @@ public class BinaryTree
                IsBinarySearchTree(root.RightChild, root.Value + 1, maxValue);
     }
 
-    private static void PrintNodesAtDistance(BinaryTreeNode? root, int distance)
+    private static void PrintNodesAtDistance(BinaryTreeNode? root, int distance, List<int> items)
     {
         if (root is null)
         {
@@ -264,12 +284,12 @@ public class BinaryTree
 
         if (distance == 0)
         {
-            Console.WriteLine(root.Value);
+            items.Add(root.Value);
             return;
         }
 
-        PrintNodesAtDistance(root.LeftChild, distance - 1);
-        PrintNodesAtDistance(root.RightChild, distance - 1);
+        PrintNodesAtDistance(root.LeftChild, distance - 1, items);
+        PrintNodesAtDistance(root.RightChild, distance - 1, items);
     }
 
     private static bool AreEquals(BinaryTreeNode? first, BinaryTreeNode? second)
@@ -288,5 +308,4 @@ public class BinaryTree
 
         return false;
     }
-
 }
