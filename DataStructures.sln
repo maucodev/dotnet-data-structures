@@ -10,7 +10,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Arrays", "Arrays", "{CC63A48C-362E-4858-9747-34A9BC3D4296}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArraysProject", "Arrays\ArraysProject\ArraysProject.csproj", "{035FF5F6-671E-44A3-A5CD-2504AF8F5E8B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArraysProject", "Arrays\ArraysProject\ArraysProject.csproj", "{035FF5F6-671E-44A3-A5CD-2504AF8F5E8B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LinkedLists", "LinkedLists", "{62905CD7-261D-45ED-8CB4-EE1782CB4214}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedListsProject", "LinkedLists\LinkedListsProject\LinkedListsProject.csproj", "{B22DCE3A-8FAA-464A-BC9F-4013FD0196BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,12 +26,17 @@ Global
 		{035FF5F6-671E-44A3-A5CD-2504AF8F5E8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{035FF5F6-671E-44A3-A5CD-2504AF8F5E8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{035FF5F6-671E-44A3-A5CD-2504AF8F5E8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B22DCE3A-8FAA-464A-BC9F-4013FD0196BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B22DCE3A-8FAA-464A-BC9F-4013FD0196BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B22DCE3A-8FAA-464A-BC9F-4013FD0196BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B22DCE3A-8FAA-464A-BC9F-4013FD0196BA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{035FF5F6-671E-44A3-A5CD-2504AF8F5E8B} = {CC63A48C-362E-4858-9747-34A9BC3D4296}
+		{B22DCE3A-8FAA-464A-BC9F-4013FD0196BA} = {62905CD7-261D-45ED-8CB4-EE1782CB4214}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {32D630C2-1E0B-43A4-BDB2-CC68538DAF9B}
