@@ -49,10 +49,6 @@ This project is inspired by the course **"The Ultimate Data Structures & Algorit
 
 Contributions to this project are welcome. If you find a bug, have an idea for a new feature, or want to improve the existing code, feel free to submit a pull request.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## Acknowledgments
 
 - **Mosh Hamedani** - For the course that inspired this project, [The Ultimate Data Structures & Algorithms](https://codewithmosh.com/p/data-structures-algorithms).
