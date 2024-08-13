@@ -30,6 +30,26 @@ namespace LinkedListsProject
 
             Console.WriteLine($"Array format: {string.Join(" ", linkedList.ToArray())}");
 
+            linkedList.Clear();
+            linkedList.AddLast(10);
+            linkedList.AddLast(20);
+            linkedList.AddLast(30);
+            linkedList.AddLast(40);
+            linkedList.AddLast(50);
+            linkedList.Reverse();
+            Console.WriteLine($"Reversed: {string.Join(" ", linkedList.ToArray())}");
+
+            linkedList.Clear();
+            linkedList.AddLast(10);
+            linkedList.AddLast(20);
+            linkedList.AddLast(30);
+            linkedList.AddLast(40);
+            linkedList.AddLast(50);
+            Console.WriteLine($"Original: {string.Join(" ", linkedList.ToArray())}");
+            Console.WriteLine($"1th value from the end: {linkedList.GetKthValueFromTheEnd(1)}");
+            Console.WriteLine($"3th value from the end: {linkedList.GetKthValueFromTheEnd(3)}");
+            Console.WriteLine($"5th value from the end: {linkedList.GetKthValueFromTheEnd(5)}");
+
             Console.ReadLine();
         }
     }

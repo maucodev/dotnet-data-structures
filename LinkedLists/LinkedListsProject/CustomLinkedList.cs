@@ -100,6 +100,15 @@ public class CustomLinkedList
     }
 
     /// <summary>
+    /// Clears the list.
+    /// </summary>
+    public void Clear()
+    {
+        First = Last = null;
+        Size = 0;
+    }
+
+    /// <summary>
     /// Removes the first node from the linked list.
     /// </summary>
     /// <exception cref="InvalidOperationException">Thrown when the linked list is empty.</exception>
@@ -152,6 +161,35 @@ public class CustomLinkedList
     }
 
     /// <summary>
+    /// Reverses the order of the nodes in the list. 
+    /// If the list is empty, the method returns without making any changes.
+    /// </summary>
+    public void Reverse()
+    {
+        if (IsEmpty())
+        {
+            return;
+        }
+
+        var a = First;
+        var b = First.Next;
+
+        while (b is not null)
+        {
+            var next = b.Next;
+
+            b.Next = a;
+            a = b;
+            b = next;
+        }
+
+        Last = First;
+        Last.Next = null;
+
+        First = a;
+    }
+
+    /// <summary>
     /// Converts the linked list to an array.
     /// </summary>
     /// <returns>An array containing all elements of the linked list in sequence.</returns>
@@ -190,6 +228,41 @@ public class CustomLinkedList
         }
 
         return null;
+    }
+
+    /// <summary>
+    /// Returns the value of the node at the specified position from the end of the list.
+    /// </summary>
+    /// <param name="k">The position from the end of the list, where 1 represents the last element.</param>
+    /// <returns>The value of the node at the specified position from the end.</returns>
+    public int GetKthValueFromTheEnd(int k)
+    {
+        if (k <= 0 || k > Size || IsEmpty())
+        {
+            throw new InvalidOperationException();
+        }
+
+        var a = First;
+        var b = First;
+
+        for (var i = 0; i < k - 1; i++)
+        {
+            b = b.Next;
+
+            // The value of K is greater than list size
+            if (b is null)
+            {
+                throw new InvalidOperationException();
+            }
+        }
+
+        while (b != Last)
+        {
+            a = a.Next;
+            b = b.Next;
+        }
+
+        return a.Value;
     }
 
     /// <summary>
