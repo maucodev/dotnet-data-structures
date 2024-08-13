@@ -22,13 +22,13 @@ Ensure that you have the required tools and SDKs installed to build and run the 
 1. Clone the repository to your local machine:
 
     ```bash
-    git clone https://github.com/maucodev/DataStructures.git
+    git clone https://github.com/maucodev/dotnet-data-structures.git
     ```
 
 2. Open the solution in Visual Studio:
 
     ```bash
-    cd DataStructures
+    cd dotnet-data-structures
     start DataStructures.sln
     ```
 
