@@ -50,6 +50,41 @@ namespace LinkedListsProject
             Console.WriteLine($"3th value from the end: {linkedList.GetKthValueFromTheEnd(3)}");
             Console.WriteLine($"5th value from the end: {linkedList.GetKthValueFromTheEnd(5)}");
 
+            linkedList.Clear();
+            Console.WriteLine($"Middle of [{string.Join(", ", linkedList.ToArray())}]: {linkedList.GetMiddle()}");
+
+            linkedList.Clear();
+            linkedList.AddLast(1);
+            linkedList.AddLast(2);
+            linkedList.AddLast(3);
+            linkedList.AddLast(4);
+            linkedList.AddLast(5);
+            Console.WriteLine($"Middle of [{string.Join(", ", linkedList.ToArray())}]: {linkedList.GetMiddle()}");
+
+            linkedList.Clear();
+            linkedList.AddLast(1);
+            linkedList.AddLast(2);
+            linkedList.AddLast(3);
+            linkedList.AddLast(4);
+            linkedList.AddLast(5);
+            linkedList.AddLast(6);
+            linkedList.AddLast(7);
+            Console.WriteLine($"Middle of [{string.Join(", ", linkedList.ToArray())}]: {linkedList.GetMiddle()}");
+
+            linkedList.Clear();
+            linkedList.AddLast(1);
+            linkedList.AddLast(2);
+            Console.WriteLine($"Middle of [{string.Join(", ", linkedList.ToArray())}]: {linkedList.GetMiddle()}");
+
+            linkedList.Clear();
+            linkedList.AddLast(1);
+            linkedList.AddLast(2);
+            linkedList.AddLast(3);
+            linkedList.AddLast(4);
+            linkedList.AddLast(5);
+            linkedList.AddLast(6);
+            Console.WriteLine($"Middle of [{string.Join(", ", linkedList.ToArray())}]: {linkedList.GetMiddle()}");
+
             Console.ReadLine();
         }
     }

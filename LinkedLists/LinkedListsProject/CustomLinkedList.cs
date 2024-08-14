@@ -266,6 +266,36 @@ public class CustomLinkedList
     }
 
     /// <summary>
+    /// Retrieves the middle element(s) of a sequence.
+    /// </summary>
+    /// <returns>
+    /// A string representation of the middle element(s) of the sequence. 
+    /// If the sequence is empty, returns "[]". 
+    /// If the sequence has an odd number of elements, returns the single middle element in the format "[value]". 
+    /// If the sequence has an even number of elements, returns both middle elements in the format "[value1, value2]".
+    /// </returns>
+    public string GetMiddle()
+    {
+        if (IsEmpty())
+        {
+            return "[]";
+        }
+
+        var a = First;
+        var b = First;
+
+        while (b != Last && b.Next != Last)
+        {
+            b = b.Next.Next;
+            a = a.Next;
+        }
+
+        return b == Last
+            ? $"[{a.Value}]"
+            : $"[{a.Value}, {a.Next.Value}]";
+    }
+
+    /// <summary>
     /// Determines whether the linked list is empty.
     /// </summary>
     /// <returns><c>true</c> if the linked list contains no elements; otherwise, <c>false</c>.</returns>
