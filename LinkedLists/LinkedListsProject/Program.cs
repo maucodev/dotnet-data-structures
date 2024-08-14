@@ -85,6 +85,14 @@ namespace LinkedListsProject
             linkedList.AddLast(6);
             Console.WriteLine($"Middle of [{string.Join(", ", linkedList.ToArray())}]: {linkedList.GetMiddle()}");
 
+            linkedList.Clear();
+            linkedList.AddLast(1);
+            linkedList.AddLast(2);
+            linkedList.AddLast(3);
+            linkedList.AddLast(4);
+            linkedList.AddLast(5);
+            Console.WriteLine($"Has loop: {linkedList.HasLoop()}");
+
             Console.ReadLine();
         }
     }

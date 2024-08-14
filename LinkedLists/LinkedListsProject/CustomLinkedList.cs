@@ -296,6 +296,40 @@ public class CustomLinkedList
     }
 
     /// <summary>
+    /// Determines whether the sequence contains a loop (cycle).
+    /// </summary>
+    /// <returns>
+    /// <c>true</c> if the sequence contains a loop; otherwise, <c>false</c>.
+    /// If the sequence is empty, returns <c>false</c>.
+    /// </returns>
+    /// <remarks>
+    /// This method uses Floyd's Cycle-Finding Algorithm, also known as the "tortoise and hare" algorithm.
+    /// </remarks>
+    public bool HasLoop()
+    {
+        if (IsEmpty())
+        {
+            return false;
+        }
+
+        var a = First;
+        var b = First;
+
+        while (b != Last && b.Next != Last)
+        {
+            a = a.Next;
+            b = b.Next.Next;
+
+            if (a == b)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /// <summary>
     /// Determines whether the linked list is empty.
     /// </summary>
     /// <returns><c>true</c> if the linked list contains no elements; otherwise, <c>false</c>.</returns>
