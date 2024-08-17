@@ -27,6 +27,9 @@ namespace StacksProject
 
             Console.WriteLine($"Empty: {stack.IsEmpty()}");
 
+            Console.WriteLine($"Peek: {stack.Peek()}");
+            Console.WriteLine($"Peek: {stack.Peek()}");
+
             var expression = new Expression("(1 + 2)");
             Console.WriteLine($"{expression.Input} is balanced: {expression.IsBalanced()}");
 

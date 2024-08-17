@@ -36,6 +36,22 @@ public class CustomStack<T>
     private bool IsFull => _items.Length == _totalItems;
 
     /// <summary>
+    /// Retrieves the top element of the stack without removing it.
+    /// </summary>
+    /// <returns>
+    /// The top element of the stack of type <typeparamref name="T"/>.
+    /// </returns>
+    public T Peek()
+    {
+        if (IsEmpty())
+        {
+            throw new InvalidOperationException("Cannot pop from an empty stack.");
+        }
+
+        return _items[_totalItems - 1];
+    }
+
+    /// <summary>
     /// Removes and returns the object at the top of the stack.
     /// </summary>
     /// <returns>The object removed from the top of the stack.</returns>
